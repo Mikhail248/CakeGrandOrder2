@@ -20,6 +20,7 @@ namespace CakeGrandOrder.Services
     class AppService
     {
 
+        List<Cake> Cakes;
         string uid="";
         FirebaseAuthClient? auth;
         FirebaseClient? client;
@@ -120,7 +121,7 @@ namespace CakeGrandOrder.Services
                     .Child("FullName")
                     .OnceSingleAsync<string>();
 
-
+                Cakes = await GetCakesAsync();
                 return true;
             }
             catch (FirebaseAuthException ex)
@@ -154,10 +155,10 @@ namespace CakeGrandOrder.Services
                   .Child("users")
                   .Child(uid)
                   .Child("Cakes")
-                  .OnceSingleAsync<Cake>();
+                  .OnceAsync<Cake>();
     
-             //   categories = categoriesFromFB.Select(fbItm => new Category() { Id = fbItm.Key, Name = fbItm.Object.Name, Description = fbItm.Object.Description, Order = fbItm.Object.Order }).ToList();
-                return null;
+                List<Cake> cakes = results.Select(fbItm => new Cake() { Id = fbItm.Key, CakeName = fbItm.Object.CakeName}).ToList();
+                return cakes;
             }
             catch (Exception)
             {

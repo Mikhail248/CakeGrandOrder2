@@ -2,6 +2,7 @@
 using CakeGrandOrder.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,8 @@ namespace CakeGrandOrder.ViewModels
     internal class DefaultCakesViewModel : ViewModelBase
     {
         #region Get Set
-        private List<Cake> cakeList;
-        public List<Cake> CakeList
+        private ObservableCollection<Cake> cakeList;
+        public ObservableCollection<Cake> CakeList
         {
             get { return cakeList; }
             set
@@ -43,8 +44,8 @@ namespace CakeGrandOrder.ViewModels
 
         private async Task InitAsync()
         {
+            CakeList = new ObservableCollection<Cake>(await AppService.GetInstance().GetCakesAsync());
 
-            CakeList = await AppService.GetInstance().GetCakesAsync();
         }
         #endregion
 }

@@ -4,7 +4,16 @@
              x:Class="CakeGrandOrder.Views.DefaultCakesPage"
              Title="DefaultCakesPage">
     <VerticalStackLayout>
-        <Label Text="Choose your cake" />
-        <Entry Placeholder="Cake" Text="{Binding Cake}"/>
+        <Label Text="lalala"/>
+        <CollectionView ItemsSource="{Binding CakeList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" Orientation="Horizontal">
+                        <Label Text="{Binding CakeName}" VerticalOptions="Center" />
+                        
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

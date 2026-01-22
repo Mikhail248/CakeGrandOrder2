@@ -6,14 +6,15 @@
     xmlns:local="clr-namespace:CakeGrandOrder.Views"
     Shell.FlyoutBehavior="Locked"
     Title="CakeGrandOrder">
-    <ShellContent
-        Title="Cakes"
-        ContentTemplate="{DataTemplate local:DefaultCakesPage}"
-        Route="DefaultCakesPage" />
+  
     <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage" />
+    <ShellContent
+      Title="Cakes"
+      ContentTemplate="{DataTemplate local:DefaultCakesPage}"
+      Route="DefaultCakesPage" />
     <ShellContent
         Title="Register"
         ContentTemplate="{DataTemplate local:RegisterPage}"

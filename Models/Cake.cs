@@ -9,6 +9,7 @@ namespace CakeGrandOrder.Models
     class Cake
     {
         public string Id { get; set; }
+        public string CakeName { get; set; }
         public int Price { get; set; }
         public int Fat { get; set; }
         public int Sugar { get; set; }
