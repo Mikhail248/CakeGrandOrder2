@@ -1,0 +1,18 @@
+﻿// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBeyB-AhHFBUA8Ql1I-HUKLjW7IbpqdYsI",
+  authDomain: "grandcakeorder.firebaseapp.com",
+  databaseURL: "https://grandcakeorder-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "grandcakeorder",
+  storageBucket: "grandcakeorder.firebasestorage.app",
+  messagingSenderId: "1095805978218",
+  appId: "1:1095805978218:web:5463fb96fb7c093d11ec13"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);

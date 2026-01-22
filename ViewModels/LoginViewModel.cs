@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CakeGrandOrder.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,13 +58,17 @@ namespace CakeGrandOrder.ViewModels
         public ICommand TogglePasswordCommand { get; set; }
         public ICommand LinkToRegisterPageCommand { get; set; }
         public ICommand ResetCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
         #endregion
 
         #region Constructor
         public LoginViewModel() {
+            UserName = "micha@gmail.com";
+            UserPassword = "123456";
             TogglePasswordCommand = new Command(ToggleViewPassword);
             LinkToRegisterPageCommand = new Command(async () => await LinkToRegisterPage());
             ResetCommand = new Command(ResetField);
+            LoginCommand = new Command(async () => await Login());
         }
         #endregion
 
@@ -75,6 +80,14 @@ namespace CakeGrandOrder.ViewModels
         private async Task LinkToRegisterPage()
         {
             await Shell.Current.GoToAsync("//RegisterPage");
+        }
+        private async Task Login()
+        {
+            bool succseed = await AppService.GetInstance().TryLogin(UserName, UserPassword);
+            if (succseed)
+            {
+                await Shell.Current.GoToAsync("//DefaultCakesPage");
+            }
         }
         private void ResetField()
         {

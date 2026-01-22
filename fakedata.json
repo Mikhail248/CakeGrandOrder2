@@ -1,0 +1,31 @@
+﻿{
+  "users": {
+    "uhCkJ7Gwl7dJF3p1YFlovFX9Y563": {
+      "FullName": "Michael Blabla ",
+      "Cakes": {
+        "uid98safduy98DSAGfg": {
+          "CakeName": "Black Forest",
+          "Price": 150,
+          "Fat": 30,
+          "Sugar": 20,
+          "CakeBase": 1,
+          "CakeFilling": 1,
+          "BaseNum": 1,
+          "Construction": 1,
+          "Top": 1
+        },
+        "uid98safduy98DSAGdfg": {
+          "CakeName": "White Forest",
+          "Price": 250,
+          "Fat": 330,
+          "Sugar": 40,
+          "CakeBase": 2,
+          "CakeFilling": 5,
+          "BaseNum": 2,
+          "Construction": 1,
+          "Top": 1
+        }
+      }
+    }
+  }
+}

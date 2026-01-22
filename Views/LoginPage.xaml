@@ -9,7 +9,8 @@
             <Entry Grid.Column="0" Placeholder="Password" Text="{Binding UserPassword}" IsPassword="{Binding ShowPassword}"/>
             <Button Grid.Column="1" Text="SP" Command="{Binding TogglePasswordCommand}"/>
         </Grid>
-        <Button Command="{Binding ResetCommand}" Text="Reset Field"/>          
+        <Button Command="{Binding ResetCommand}" Text="Reset Field"/>
+        <Button Command="{Binding LoginCommand}" Text="Login"/>
         <Button Text="Don't have an account?" Command="{Binding LinkToRegisterPageCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

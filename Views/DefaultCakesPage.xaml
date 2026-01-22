@@ -4,9 +4,7 @@
              x:Class="CakeGrandOrder.Views.DefaultCakesPage"
              Title="DefaultCakesPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="Choose your cake" />
+        <Entry Placeholder="Cake" Text="{Binding Cake}"/>
     </VerticalStackLayout>
 </ContentPage>

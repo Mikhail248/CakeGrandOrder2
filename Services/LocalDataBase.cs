@@ -4,6 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CakeGrandOrder.Models;
+using Firebase.Auth;
+using Firebase.Auth.Providers;
+using Firebase.Auth.Repository;
+using Firebase.Database;
+using Firebase.Database.Query;
+using System.Runtime.ConstrainedExecution;
+using Microsoft.Maui.ApplicationModel.Communication;
+using CakeGrandOrder.ViewModels;
+using Microsoft.Maui.Storage;
 namespace CakeGrandOrder.CakeGrandOrder.Services
 {
     internal class LocalDataBase
