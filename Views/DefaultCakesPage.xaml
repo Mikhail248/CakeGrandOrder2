@@ -5,6 +5,7 @@
              Title="DefaultCakesPage">
 	<VerticalStackLayout>
 		<Label Text="Choose your cake"/>
+		<Label Text="Choose your cake"/>
 		<CollectionView ItemsSource="{Binding CakeList}">
 			<CollectionView.ItemTemplate>
 				<DataTemplate>
@@ -12,28 +13,28 @@
 						<Label Text="CakeName: " VerticalOptions="Center" />
 						<Label Text="{Binding CakeName}" VerticalOptions="Center" />
 
-						<Label Text="
-                               Price: " VerticalOptions="Center" />
+						<Label Text="	Price: " VerticalOptions="Center" />
 						<Label Text="{Binding Price}" VerticalOptions="Center" />
 
-						<Label Text="
-                               Fat: " VerticalOptions="Center" />
+						<Label Text="	Fat: " VerticalOptions="Center" />
 						<Label Text="{Binding Fat}" VerticalOptions="Center" />
 
-						<Label Text="
-                               Sugar: " VerticalOptions="Center" />
+						<Label Text="	Sugar: " VerticalOptions="Center" />
 						<Label Text="{Binding Sugar}" VerticalOptions="Center" />
 
-						<Label Text="
-                               CakeBase: " VerticalOptions="Center" />
+						<Label Text="	CakeBase: " VerticalOptions="Center" />
 						<Label Text="{Binding CakeBase}" VerticalOptions="Center" />
 
+						<Label Text="	CakeFilling: " VerticalOptions="Center" />
 						<Label Text="{Binding CakeFilling}" VerticalOptions="Center" />
 
+						<Label Text="	BaseNum: " VerticalOptions="Center" />
 						<Label Text="{Binding BaseNum}" VerticalOptions="Center" />
 
+						<Label Text="	Construction: " VerticalOptions="Center" />
 						<Label Text="{Binding Construction}" VerticalOptions="Center" />
 
+						<Label Text="	Top: " VerticalOptions="Center" />
 						<Label Text="{Binding Top}" VerticalOptions="Center" />
 					</StackLayout>
 				</DataTemplate>
