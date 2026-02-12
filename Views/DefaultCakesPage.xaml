@@ -5,11 +5,14 @@
              Title="DefaultCakesPage">
 	<VerticalStackLayout>
 		<Label Text="Choose your cake"/>
-		<Label Text="Choose your cake"/>
-		<CollectionView ItemsSource="{Binding CakeList}">
+        <Label Text="CakeBase: 1 - Biscuit;	2 - Chocolate"/>
+        <Label Text="CakeFilling: 1 - Creame;	2 - Chocolate;	3 - Apple"/>
+        <Label Text="Construction: 1 - All bases are equal;	2 - Small base on medium base on big base"/>
+        <Label Text="Top: 1 - Cherry;	2 - Chocolate figure;	3 - Candle"/>
+        <CollectionView ItemsSource="{Binding CakeList}">
 			<CollectionView.ItemTemplate>
-				<DataTemplate>
-					<StackLayout Padding="10" Orientation="Horizontal">
+                <DataTemplate>
+                    <StackLayout Padding="10" Orientation="Horizontal">
 						<Label Text="CakeName: " VerticalOptions="Center" />
 						<Label Text="{Binding CakeName}" VerticalOptions="Center" />
 
