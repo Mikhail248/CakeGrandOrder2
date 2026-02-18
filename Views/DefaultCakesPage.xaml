@@ -38,7 +38,9 @@
 						<Label Text="{Binding Construction}" VerticalOptions="Center" />
 
 						<Label Text="	Top: " VerticalOptions="Center" />
-						<Label Text="{Binding Top}" VerticalOptions="Center" />
+                        <Label Text="{Binding Top}" VerticalOptions="Center" />
+                        
+                        <Button Text="Order" Command="{Binding OrderDefaultCake}"/>
 					</StackLayout>
 				</DataTemplate>
 			</CollectionView.ItemTemplate>
