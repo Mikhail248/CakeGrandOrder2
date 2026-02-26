@@ -166,6 +166,23 @@ namespace CakeGrandOrder.Services
             }
         }
 
+        public async Task<bool> CreateCakeOrder(Order order)
+        {
+            try
+            {
+                var result = await client
+                  .Child("users")
+                  .Child(uid)
+                  .Child("orders")
+                  .PostAsync(order);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
 
     }
 }

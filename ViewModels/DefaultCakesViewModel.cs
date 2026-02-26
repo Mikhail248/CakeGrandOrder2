@@ -27,16 +27,17 @@ namespace CakeGrandOrder.ViewModels
             }
         }
         #endregion
-        
+
         #region Commands
+        public ICommand OrderDefaultCakeCommand { get; set; }
 
         #endregion
         #region Constructor
         public DefaultCakesViewModel()
         {
             InitAsync();
-            
-            
+            OrderDefaultCakeCommand = new Command(async () => await OrderCake());
+
         }
         #endregion
 
@@ -47,6 +48,11 @@ namespace CakeGrandOrder.ViewModels
             CakeList = new ObservableCollection<Cake>(await AppService.GetInstance().GetCakesAsync());
 
         }
+        private async Task OrderCake()
+        {
+            Order order = new Order();
+            AppService.GetInstance().CreateCakeOrder(order);
+        }
         #endregion
-}
+    }
 }
