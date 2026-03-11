@@ -7,10 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+namespace CakeGrandOrder.ViewModels;
 
-namespace CakeGrandOrder.ViewModels
-{
-    internal class DefaultCakesViewModel : ViewModelBase
+    internal class CartViewModel : ViewModelBase
     {
         #region Get Set
         private ObservableCollection<Cake> cakeList;
@@ -29,14 +28,14 @@ namespace CakeGrandOrder.ViewModels
         #endregion
 
         #region Commands
-        public ICommand OrderDefaultCakeCommand { get; set; }
+        public ICommand OrderCart { get; set; }
 
         #endregion
         #region Constructor
-        public DefaultCakesViewModel()
+        public CartViewModel()
         {
             InitAsync();
-            OrderDefaultCakeCommand = new Command(async () => await OrderCake());
+        OrderCart = new Command(async () => await OrderCakeOrderCart());
 
         }
         #endregion
@@ -46,9 +45,8 @@ namespace CakeGrandOrder.ViewModels
         private async Task InitAsync()
         {
             CakeList = new ObservableCollection<Cake>(await AppService.GetInstance().GetCakesAsync());
-
         }
-        private async Task OrderCake()
+        private async Task OrderCakeOrderCart()
         {
             Order order = new Order();
             AppService.GetInstance().CreateCakeOrder(order);

@@ -19,5 +19,8 @@
         Title="Register"
         ContentTemplate="{DataTemplate local:RegisterPage}"
         Route="RegisterPage" />
-
+    <ShellContent
+    Title="Cart"
+    ContentTemplate="{DataTemplate local:CartPage}"
+    Route="CartPage" />
 </Shell>
