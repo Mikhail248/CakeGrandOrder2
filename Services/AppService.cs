@@ -183,6 +183,23 @@ namespace CakeGrandOrder.Services
 
             return true;
         }
+        
+        public async Task<bool> CreateCakeCart(Cart cart)
+        {
+            try
+            {
+                var result = await client
+                  .Child("users")
+                  .Child(uid)
+                  .Child("carts")
+                  .PostAsync(cart);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
+            return true;
+        }
     }
 }

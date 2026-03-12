@@ -51,8 +51,9 @@ namespace CakeGrandOrder.ViewModels
         private async Task OrderCake()
         {
             Order order = new Order();
-            AppService.GetInstance().CreateCakeOrder(order);
             await Shell.Current.GoToAsync("//CartPage");
+            AppService.GetInstance().CreateCakeOrder(order);
+            
         }
         #endregion
     }

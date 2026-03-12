@@ -35,7 +35,7 @@ namespace CakeGrandOrder.ViewModels;
         public CartViewModel()
         {
             InitAsync();
-        OrderCart = new Command(async () => await OrderCakeOrderCart());
+        OrderCart = new Command(async () => await CakeOrderCart());
 
         }
         #endregion
@@ -46,12 +46,12 @@ namespace CakeGrandOrder.ViewModels;
         {
             CakeList = new ObservableCollection<Cake>(await AppService.GetInstance().GetCakesAsync());
         }
-        private async Task OrderCakeOrderCart()
+        private async Task CakeOrderCart()
         {
-            Order order = new Order();
-            AppService.GetInstance().CreateCakeOrder(order);
-            await Shell.Current.GoToAsync("//CartPage");
+            Cart cart = new Cart(); ;
+            AppService.GetInstance().CreateCakeCart(cart);
+            await Shell.Current.GoToAsync("//");
         }
         #endregion
     }
-}
+

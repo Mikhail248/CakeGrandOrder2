@@ -8,5 +8,7 @@ namespace CakeGrandOrder.Models
 {
     internal class Cart
     {
+        public string Id { get; set; }
+        public List<Order> CartOrders { get; set; }
     }
 }
