@@ -36,24 +36,22 @@ namespace CakeGrandOrder.ViewModels
         public DefaultCakesViewModel()
         {
             InitAsync();
-            OrderDefaultCakeCommand = new Command(async () => await OrderCake());
-
+            OrderDefaultCakeCommand = new Command<Cake>(async (cake) => await OrderCake(cake));
         }
         #endregion
 
         #region Methods
 
-        private async Task InitAsync()
+        public async Task InitAsync()
         {
             CakeList = new ObservableCollection<Cake>(await AppService.GetInstance().GetCakesAsync());
-
         }
-        private async Task OrderCake()
+        Order order = new Order();
+        public async Task OrderCake(Cake cake)
         {
-            Order order = new Order();
-            await Shell.Current.GoToAsync("//CartPage");
+            order.cakes.Add(cake);
             AppService.GetInstance().CreateCakeOrder(order);
-            
+            await Shell.Current.GoToAsync("//CartPage");
         }
         #endregion
     }

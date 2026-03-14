@@ -42,7 +42,7 @@
                         <Label Text="	Top: " VerticalOptions="Center" Grid.Row="8" Grid.Column="0"/>
                         <Label Text="{Binding Top}" VerticalOptions="Center" Grid.Row="8" Grid.Column="1"/>
 
-                        <Button Text="Order" Command="{Binding OrderDefaultCakeCommand}" Grid.Row="9"
+                        <Button Text="Order" Command="{Binding OrderDefaultCakeCommand}" CommandParameter="{Binding .}" Grid.Row="9"
                 Grid.ColumnSpan="2"/>
                     </Grid>
                 </DataTemplate>

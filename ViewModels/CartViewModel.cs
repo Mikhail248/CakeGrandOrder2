@@ -48,8 +48,8 @@ namespace CakeGrandOrder.ViewModels;
         }
         private async Task CakeOrderCart()
         {
-            Cart cart = new Cart(); ;
-            AppService.GetInstance().CreateCakeCart(cart);
+            
+            AppService.GetInstance();
             await Shell.Current.GoToAsync("//");
         }
         #endregion
