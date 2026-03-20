@@ -1,29 +1,97 @@
 ﻿{
+  "PredefinedCakes": {
+    "uidWhiteForst": {
+      "BaseNum": 2,
+      "CakeBase": 2,
+      "CakeFilling": 5,
+      "CakeName": "White Forest",
+      "Construction": 1,
+      "Fat": 330,
+      "Price": 250,
+      "Sugar": 40,
+      "Top": 1
+    },
+    "uidBlackForst": {
+      "BaseNum": 1,
+      "CakeBase": 1,
+      "CakeFilling": 1,
+      "CakeName": "Black Forest",
+      "Construction": 1,
+      "Fat": 30,
+      "Price": 150,
+      "Sugar": 20,
+      "Top": 1
+    },
+    "uidChoclateFancy": {
+      "BaseNum": 2,
+      "CakeBase": 2,
+      "CakeFilling": 2,
+      "CakeName": "Fancy Chocklate",
+      "Construction": 1,
+      "Fat": 30,
+      "Price": 150,
+      "Sugar": 20,
+      "Top": 1
+    }
+  },
   "users": {
-    "uhCkJ7Gwl7dJF3p1YFlovFX9Y563": {
-      "FullName": "Michael Blabla ",
-      "Cakes": {
-        "uid98safduy98DSAGfg": {
-          "CakeName": "Black Forest",
-          "Price": 150,
-          "Fat": 30,
-          "Sugar": 20,
-          "CakeBase": 1,
-          "CakeFilling": 1,
-          "BaseNum": 1,
-          "Construction": 1,
-          "Top": 1
+    "uidMicha": {
+      "FullName": "Micha Micha",
+      "Email": "mich@mich.com",
+      "orders": {
+        "uidOrder_1": {
+          "date": "2024-05-14T09:30:00",
+          "Cakes": {
+            "uidCake1ofueser_uidEldan": {
+              "BaseNum": 1,
+              "CakeBase": 1,
+              "CakeFilling": 1,
+              "CakeName": "Black Forest",
+              "Construction": 1,
+              "Fat": 30,
+              "Price": 150,
+              "Sugar": 20,
+              "Top": 1
+            },
+            "uidCake2ofueser_uidEldan": {
+              "BaseNum": 1,
+              "CakeBase": 1,
+              "CakeFilling": 1,
+              "CakeName": "Custom Cake",
+              "Construction": 1,
+              "Fat": 30,
+              "Price": 150,
+              "Sugar": 20,
+              "Top": 1
+            }
+          }
         },
-        "uid98safduy98DSAGdfg": {
-          "CakeName": "White Forest",
-          "Price": 250,
-          "Fat": 330,
-          "Sugar": 40,
-          "CakeBase": 2,
-          "CakeFilling": 5,
-          "BaseNum": 2,
-          "Construction": 1,
-          "Top": 1
+        "uidOrder_2": {
+          "date": "2026-12-01T18:45:10",
+          "Cakes": {
+            "uidCake1ofueser_uidEldan_": {
+              "BaseNum": 1,
+              "CakeBase": 1,
+              "CakeFilling": 1,
+              "CakeName": "Black Forest",
+              "Construction": 1,
+              "Fat": 30,
+              "Price": 150,
+              "Sugar": 20,
+              "Top": 1
+            },
+            "uidCake2ofueser_uidEldan_": {
+              "BaseNum": 1,
+              "CakeBase": 2,
+              "CakeFilling": 2,
+              "CakeName": "Custom Cake",
+              "Construction": 1,
+              "Fat": 20,
+              "Price": 150,
+              "Sugar": 20,
+              "Top": 1
+            }
+          }
         }
       }
     }
