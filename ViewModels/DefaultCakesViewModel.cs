@@ -39,7 +39,7 @@ namespace CakeGrandOrder.ViewModels
             OrderDefaultCakeCommand = new Command<Cake>(async (cake) => await OrderCake(cake));
         }
         #endregion
-
+        
         #region Methods
 
         public async Task InitAsync()

@@ -152,11 +152,8 @@ namespace CakeGrandOrder.Services
             try
             {
                 var results = await client
-                  .Child("users")
-                  .Child(uid)
                   .Child("Cakes")
                   .OnceAsync<Cake>();
-
                 List<Cake> cakes = results.Select(fbItm => new Cake() { Id = fbItm.Key, CakeName = fbItm.Object.CakeName, Price = fbItm.Object.Price, Fat = fbItm.Object.Fat, Sugar = fbItm.Object.Sugar, CakeBase = fbItm.Object.CakeBase, CakeFilling = fbItm.Object.CakeFilling, BaseNum = fbItm.Object.BaseNum, Construction = fbItm.Object.Construction, Top = fbItm.Object.Top }).ToList();
                 return cakes;
             }
