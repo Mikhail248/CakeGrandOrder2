@@ -9,7 +9,7 @@ namespace CakeGrandOrder.Models
     class Order
     {
         public string Id { get; set; }
-        public List<Cake> cakes { get; set; }
-        public DateTime date { get; set; }
+        public List<Cake> Cakes { get; set; }
+        public DateTime Date { get; set; }
     }
 }

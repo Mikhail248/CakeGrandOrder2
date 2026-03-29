@@ -1,4 +1,5 @@
 ﻿using CakeGrandOrder.Services;
+using CakeGrandOrder.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,7 +87,8 @@ namespace CakeGrandOrder.ViewModels
             bool succseed = await AppService.GetInstance().TryLogin(UserName, UserPassword);
             if (succseed)
             {
-                await Shell.Current.GoToAsync("//DefaultCakesPage");
+                await Shell.Current.GoToAsync("//OrdersPage"); 
+                ///await Shell.Current.GoToAsync("//DefaultCakesPage");
             }
         }
         private void ResetField()

@@ -18,5 +18,6 @@ namespace CakeGrandOrder.Models
         public int BaseNum { get; set; }
         public int Construction { get; set; }
         public int Top { get; set; }
+
     }
 }

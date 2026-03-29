@@ -32,15 +32,19 @@ namespace CakeGrandOrder.ViewModels
         {
             
             get {
-                ObservableCollection<Cake> cakes = new ObservableCollection<Cake>();
-                for (int i = 0; i < orderList.Count; i++)
+                if (cakeList == null)
                 {
-                    for (int j = 0; j < orderList[i].cakes.Count; j++)
-                    {
-                        cakes.Add(orderList[i].cakes[j]);
-                    }
+                    return null;
                 }
-                return (ObservableCollection<Cake>)cakes;
+                    ObservableCollection<Cake> cakes = new ObservableCollection<Cake>();
+                    for (int i = 0; i < orderList.Count; i++)
+                    {
+                        for (int j = 0; j < orderList[i].Cakes.Count; j++)
+                        {
+                            cakes.Add(orderList[i].Cakes[j]);
+                        }
+                    }
+                    return (ObservableCollection<Cake>)cakes;
                 
             }
             set
@@ -69,13 +73,13 @@ namespace CakeGrandOrder.ViewModels
 
         public async Task InitAsync()
         {
-            CakeList = new ObservableCollection<Cake>(await AppService.GetInstance().GetOrderCakesAsync());
-
+            List<Order> tempOrders = new List<Order>(await AppService.GetInstance().GetOrderCakesAsync());
+            OrderList = new ObservableCollection<Order>(tempOrders);
         }
         Order order = new Order();
         public async Task OrderCake(Cake cake)
         {
-            order.cakes.Add(cake);
+            order.Cakes.Add(cake);
             await AppService.GetInstance().CreateCakeOrder(order);
             await Shell.Current.GoToAsync("//CartPage");
         }

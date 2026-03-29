@@ -50,7 +50,7 @@ namespace CakeGrandOrder.ViewModels
         Order order = new Order();
         public async Task OrderCake(Cake cake)
         {
-            order.cakes.Add(cake);
+            order.Cakes.Add(cake);
             await AppService.GetInstance().CreateCakeOrder(order);
             await Shell.Current.GoToAsync("//CartPage");
         }

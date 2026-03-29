@@ -162,7 +162,7 @@ namespace CakeGrandOrder.Services
                 throw;
             }
         }
-        public async Task<List<Cake>?> GetOrderCakesAsync()
+        public async Task<List<Order>?> GetOrderCakesAsync()
         {
             try
             {
@@ -170,18 +170,19 @@ namespace CakeGrandOrder.Services
                   .Child("users")
                   .Child(uid)
                   .Child("orders")
-                  .Child(uid)
-                  .Child("Cakes")
-                  .OnceAsync<Cake>();
-                List<Cake> cakes = results.Select(fbItm => new Cake() { Id = fbItm.Key, CakeName = fbItm.Object.CakeName, Price = fbItm.Object.Price, Fat = fbItm.Object.Fat, Sugar = fbItm.Object.Sugar, CakeBase = fbItm.Object.CakeBase, CakeFilling = fbItm.Object.CakeFilling, BaseNum = fbItm.Object.BaseNum, Construction = fbItm.Object.Construction, Top = fbItm.Object.Top }).ToList();
-                return cakes;
+
+                  .OnceAsync<Order>();
+                List<Order> orders = results.Select(fbItm => new Order() { Id = fbItm.Key, Date = fbItm.Object.Date, Cakes = fbItm.Object.Cakes }).ToList();
+                ///fbItm => new Cake() { Id = fbItm.Key, CakeName = fbItm.Object.CakeName, Price = fbItm.Object.Price, Fat = fbItm.Object.Fat, Sugar = fbItm.Object.Sugar, CakeBase = fbItm.Object.CakeBase, CakeFilling = fbItm.Object.CakeFilling, BaseNum = fbItm.Object.BaseNum, Construction = fbItm.Object.Construction, Top = fbItm.Object.Top }
+                Console.WriteLine();
+                return orders;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
-
+  
         public async Task<bool> CreateCakeOrder(Order order)
         {
             try
