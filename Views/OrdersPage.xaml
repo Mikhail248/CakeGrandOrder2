@@ -5,7 +5,7 @@
              Title="OrdersPage">
     <VerticalStackLayout>
         <Label Text="Here are your orders"/>
-        <CollectionView ItemsSource="{Binding OrderList}" Grid.Row="1">
+        <CollectionView ItemsSource="{Binding CakeList}" Grid.Row="1">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="0" ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">

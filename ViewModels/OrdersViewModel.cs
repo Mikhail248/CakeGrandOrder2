@@ -31,7 +31,18 @@ namespace CakeGrandOrder.ViewModels
         public ObservableCollection<Cake> CakeList
         {
             
-            get { return (ObservableCollection<Cake>)orderList[0].cakes.ToObservable<Cake>(); }
+            get {
+                ObservableCollection<Cake> cakes = new ObservableCollection<Cake>();
+                for (int i = 0; i < orderList.Count; i++)
+                {
+                    for (int j = 0; j < orderList[i].cakes.Count; j++)
+                    {
+                        cakes.Add(orderList[i].cakes[j]);
+                    }
+                }
+                return (ObservableCollection<Cake>)cakes;
+                
+            }
             set
             {
                 if (value != null)
