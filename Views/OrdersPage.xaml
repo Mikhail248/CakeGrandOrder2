@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CakeGrandOrder.Views.OrdersPage"
+             Title="OrdersPage">
+    <VerticalStackLayout>
+        <Label Text="Here are your orders"/>
+        <CollectionView ItemsSource="{Binding OrderList}" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="0" ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                        <Label Text="CakeName: " VerticalOptions="Center" Grid.Row="0" Grid.Column="0"/>
+                        <Label Text="{Binding CakeName}" VerticalOptions="Center" Grid.Row="0" Grid.Column="1"/>
+
+                        <Label Text="	Price: " VerticalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+                        <Label Text="{Binding Price}" VerticalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+
+                        <Label Text="	Fat: " VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
+                        <Label Text="{Binding Fat}" VerticalOptions="Center" Grid.Row="2" Grid.Column="1"/>
+
+                        <Label Text="	Sugar: " VerticalOptions="Center" Grid.Row="3" Grid.Column="0"/>
+                        <Label Text="{Binding Sugar}" VerticalOptions="Center" Grid.Row="3" Grid.Column="1"/>
+
+                        <Label Text="	CakeBase: " VerticalOptions="Center" Grid.Row="4" Grid.Column="0"/>
+                        <Label Text="{Binding CakeBase}" VerticalOptions="Center" Grid.Row="4" Grid.Column="1"/>
+
+                        <Label Text="	CakeFilling: " VerticalOptions="Center" Grid.Row="5" Grid.Column="0"/>
+                        <Label Text="{Binding CakeFilling}" VerticalOptions="Center" Grid.Row="5" Grid.Column="1"/>
+
+                        <Label Text="	BaseNum: " VerticalOptions="Center" Grid.Row="6" Grid.Column="0"/>
+                        <Label Text="{Binding BaseNum}" VerticalOptions="Center" Grid.Row="6" Grid.Column="1"/>
+
+                        <Label Text="	Construction: " VerticalOptions="Center" Grid.Row="7" Grid.Column="0"/>
+                        <Label Text="{Binding Construction}" VerticalOptions="Center" Grid.Row="7" Grid.Column="1"/>
+
+                        <Label Text="	Top: " VerticalOptions="Center" Grid.Row="8" Grid.Column="0"/>
+                        <Label Text="{Binding Top}" VerticalOptions="Center" Grid.Row="8" Grid.Column="1"/>
+
+                        <Button Text="Reorder" Command="{Binding OrderDefaultCakeCommand}" CommandParameter="{Binding .}" Grid.Row="9" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
