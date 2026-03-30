@@ -162,7 +162,7 @@ namespace CakeGrandOrder.Services
                 throw;
             }
         }
-        public async Task<List<Order>?> GetOrderCakesAsync()
+        /*public async Task<List<Order>?> GetOrderCakesAsync()
         {
             try
             {
@@ -182,7 +182,38 @@ namespace CakeGrandOrder.Services
                 throw ex;
             }
         }
-  
+        */
+        public async Task<List<Order>?> GetOrderCakesAsync()
+        {
+            try
+            {
+                var results = await client
+                  .Child("users")
+                  .Child(uid)
+                  .Child("orders")
+                  .OnceAsync<FBOrder>();
+                List<Order> orders = results.Select(fbItm => new Order()
+                {
+                    Id = fbItm.Key,
+                    Date = fbItm.Object.Date,
+                    Cakes = fbItm.Object.DictionaryCakes != null
+                ? fbItm.Object.DictionaryCakes
+                .Values.ToList()
+                : new List<Cake>()
+                }).ToList();
+                return orders;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        class FBOrder
+        {
+            public string Id { get; set; }
+            public Dictionary<string, Cake> DictionaryCakes { get; set; }
+            public DateTime Date { get; set; }
+        }
         public async Task<bool> CreateCakeOrder(Order order)
         {
             try
