@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CakeGrandOrder.Views.OrdersPage"
              Title="OrdersPage">
-    <VerticalStackLayout>
+    <Grid RowDefinitions="Auto,*">
         <Label Text="Here are your orders"/>
         <CollectionView ItemsSource="{Binding CakeList}" Grid.Row="1">
             <CollectionView.ItemTemplate>
@@ -41,5 +41,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
+        </Grid>
 </ContentPage>

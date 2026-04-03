@@ -74,15 +74,15 @@ namespace CakeGrandOrder.ViewModels
             List<Order> tempOrders = new List<Order>(await AppService.GetInstance().GetOrderCakesAsync());
             OrderList = new ObservableCollection<Order>(tempOrders);
 
-            ObservableCollection<Cake> cakes = new ObservableCollection<Cake>();
+            ObservableCollection<Cake> tempcakes = new ObservableCollection<Cake>();
             for (int i = 0; i < OrderList.Count; i++)
             {
                 for (int j = 0; j < OrderList[i].Cakes.Count; j++)
                 {
-                    cakes.Add(OrderList[i].Cakes[j]);
+                    tempcakes.Add(OrderList[i].Cakes[j]);
                 }
             }
-            CakeList = (ObservableCollection<Cake>)cakes;
+            CakeList = new ObservableCollection<Cake> (tempcakes);
         }
         Order order = new Order();
         public async Task OrderCake(Cake cake)
