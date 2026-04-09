@@ -196,8 +196,8 @@ namespace CakeGrandOrder.Services
                 {
                     Id = fbItm.Key,
                     Date = fbItm.Object.Date,
-                    Cakes = fbItm.Object.DictionaryCakes != null
-                ? fbItm.Object.DictionaryCakes
+                    Cakes = fbItm.Object.Cakes != null
+                ? fbItm.Object.Cakes
                 .Values.ToList()
                 : new List<Cake>()
                 }).ToList();
@@ -211,7 +211,7 @@ namespace CakeGrandOrder.Services
         class FBOrder
         {
             public string Id { get; set; }
-            public Dictionary<string, Cake> DictionaryCakes { get; set; }
+            public Dictionary<string, Cake> Cakes { get; set; }
             public DateTime Date { get; set; }
         }
         public async Task<bool> CreateCakeOrder(Order order)

@@ -3,6 +3,7 @@ using CakeGrandOrder.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Text;
@@ -57,13 +58,16 @@ namespace CakeGrandOrder.ViewModels
         #endregion
         #region Commands
         public ICommand OrderDefaultCakeCommand { get; set; }
+        public ICommand ImageCakeCommand { get; set; }
 
         #endregion
         #region Constructor
         public OrdersViewModel()
         {
             InitAsync();
+            
             OrderDefaultCakeCommand = new Command<Cake>(async (cake) => await OrderCake(cake));
+            ImageCakeCommand = new Command<Cake>(async(cake) => await CakeImage(cake));
         }
         #endregion
 
@@ -90,6 +94,19 @@ namespace CakeGrandOrder.ViewModels
             order.Cakes.Add(cake);
             await AppService.GetInstance().CreateCakeOrder(order);
             await Shell.Current.GoToAsync("//CartPage");
+        }
+        public async Task CakeImage(Cake cake)
+        {
+            List<string> tempImage = new List<string>();
+            for (int j = 0; j < cake.BaseNum; j++)
+            {
+                string cakebase = cake.CakeBase.ToString();
+                tempImage.Add("base" + cakebase + ".png");
+                string cakefilling = cake.CakeFilling.ToString();
+                tempImage.Add("filling" + cakefilling + ".png");
+            }
+            string top = cake.Top.ToString();
+            tempImage.Add("top" + top + ".png");
         }
         #endregion
 
