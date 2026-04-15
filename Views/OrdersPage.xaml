@@ -19,7 +19,7 @@
 
                                     <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*,*,*,*">
                                         <Label Grid.Column="0" Text="{Binding CakeName}" />
-                                        <Image Grid.Row="3">
+                                        <Image Grid.Row="3" IsVisible="{Binding}">
                                             <Image.Triggers>
                                                 <DataTrigger TargetType="Image"
                                                 Binding="{Binding CakeBase}"

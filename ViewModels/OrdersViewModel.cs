@@ -72,7 +72,8 @@ namespace CakeGrandOrder.ViewModels
         #endregion
 
         #region Methods
-
+        bool base2 = false;
+        bool base3 = false;
         public async Task InitAsync()
         {
             List<Order> tempOrders = new List<Order>(await AppService.GetInstance().GetOrderCakesAsync());
