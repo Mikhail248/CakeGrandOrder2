@@ -19,12 +19,12 @@
 
                                     <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*,*,*,*">
                                         <Label Grid.Column="0" Text="{Binding CakeName}" />
-                                        <Image Grid.Row="3" IsVisible="{Binding}">
+                                        <Image Grid.Row="3" IsVisible="{Binding BaseList2}">
                                             <Image.Triggers>
                                                 <DataTrigger TargetType="Image"
                                                 Binding="{Binding CakeBase}"
                                                 Value="1">
-                                                <Setter Property="Source" Value="base1.png"/>
+                                                    <Setter Property="Source" Value="base1.png"/>
                                                 </DataTrigger>
                                                 <DataTrigger TargetType="Image"
                                                 Binding="{Binding CakeBase}"
