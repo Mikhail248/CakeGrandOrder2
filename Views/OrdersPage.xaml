@@ -19,6 +19,34 @@
 
                                     <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*,*,*,*">
                                         <Label Grid.Column="0" Text="{Binding CakeName}" />
+                                        <VerticalStackLayout Grid.Column="0" Spacing="10">
+                                            <BoxView
+                                                BackgroundColor="Brown"
+                                                HeightRequest="20"
+                                                IsVisible="{Binding B1}" />
+                                            <BoxView
+                                                BackgroundColor="Brown"
+                                                HeightRequest="20"
+                                                IsVisible="{Binding B2}" />
+                                            <BoxView
+                                                BackgroundColor="Brown"
+                                                HeightRequest="20"
+                                                IsVisible="{Binding B3}" />
+                                            <BoxView
+                                                BackgroundColor="MintCream"
+                                                HeightRequest="20"
+                                                IsVisible="{Binding W1}" />
+                                            <BoxView
+                                                BackgroundColor="MintCream"
+                                                HeightRequest="20"
+                                                IsVisible="{Binding W2}" />
+                                            <BoxView
+                                                BackgroundColor="MintCream"
+                                                HeightRequest="20"
+                                                IsVisible="{Binding W3}" />
+                                        </VerticalStackLayout>
+
+                                        <!--
                                         <Image Grid.Row="3" IsVisible="{Binding BaseList2}">
                                             <Image.Triggers>
                                                 <DataTrigger TargetType="Image"
@@ -75,6 +103,7 @@
 
                                             </Image.Triggers>
                                         </Image>
+                                        -->
                                         <!--  
                                          <Image
      Source="base2.png"
