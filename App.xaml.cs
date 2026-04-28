@@ -6,7 +6,16 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new AppShellNotAuth();
+        }
+        public void SetAuthenticatedShell()
+        {
+            MainPage = new AppShellAuth();
+        }
+
+        public void SetUnauthenticatedShell()
+        {
+            MainPage = new AppShellNotAuth(); ;
         }
     }
 }

@@ -76,6 +76,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="AppShellNotAuth.xaml.cs">
+	    <DependentUpon>AppShellNotAuth.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="AppShellAuth.xaml.cs">
+	    <DependentUpon>AppShellAuth.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="AppShellNotAuth.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="AppShellAuth.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\CartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
