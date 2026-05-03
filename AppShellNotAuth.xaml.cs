@@ -1,12 +1,10 @@
 ﻿namespace CakeGrandOrder
 {
-    public partial class App : Application
+    public partial class AppShellNotAuth : Shell
     {
-        public App()
+        public AppShellNotAuth()
         {
             InitializeComponent();
-
-            MainPage = new AppShellNotAuth();
         }
     }
 }

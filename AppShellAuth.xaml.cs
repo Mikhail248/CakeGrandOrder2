@@ -1,12 +1,20 @@
-﻿namespace CakeGrandOrder
+﻿using CakeGrandOrder.Services;
+
+
+namespace CakeGrandOrder
 {
-    public partial class App : Application
+    public partial class AppShellAuth : Shell
     {
-        public App()
+        public AppShellAuth()
         {
             InitializeComponent();
 
-            MainPage = new AppShellAuth();
+            
+        }
+        private async void MenuItem_Logout_Clicked(object sender, EventArgs e)
+        {
+            AppService.GetInstance().Logout();
+            ((App)Application.Current).SetUnauthenticatedShell();
         }
     }
 }

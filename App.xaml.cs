@@ -1,4 +1,7 @@
-﻿namespace CakeGrandOrder
+﻿using Microsoft.Maui.Controls;
+using CakeGrandOrder.Services;
+
+namespace CakeGrandOrder
 {
     public partial class App : Application
     {
