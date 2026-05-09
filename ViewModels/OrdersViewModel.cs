@@ -133,10 +133,18 @@ namespace CakeGrandOrder.ViewModels
             BaseList2 = new ObservableCollection<bool>(tempbases2);
             BaseList3 = new ObservableCollection<bool>(tempbases3);
         }
-        Order order = new Order();
+        Order order = new Order()
+        {
+            Cakes = new List<Cake>()
+        };
         public async Task OrderCake(Cake cake)
         {
-            order.Cakes.Add(cake);
+            var order = new Order()
+            {
+                Cakes = new List<Cake> { cake },
+                Date = DateTime.Now
+            };
+        order.Cakes.Add(cake);
             await AppService.GetInstance().CreateCakeOrder(order);
             await Shell.Current.GoToAsync("//CartPage");
         }
