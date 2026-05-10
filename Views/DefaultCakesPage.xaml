@@ -41,9 +41,13 @@
 
                         <Label Text="	Top: " VerticalOptions="Center" Grid.Row="8" Grid.Column="0"/>
                         <Label Text="{Binding Top}" VerticalOptions="Center" Grid.Row="8" Grid.Column="1"/>
-
-                        <Button Text="Order" Command="{Binding OrderDefaultCakeCommand}" CommandParameter="{Binding .}" Grid.Row="9"
-                Grid.ColumnSpan="2"/>
+                        <Button
+    Grid.Row="9"
+    Grid.ColumnSpan="2"
+    Command="{Binding OrderDefaultCakeCommand, Source={x:RelativeSource AncestorType={x:Type viewmodels:DefaultCakesViewModel}, Mode=FindAncestorBindingContext}}"
+    CommandParameter="{Binding .}"
+    Text="Order" />
+                        
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
