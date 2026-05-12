@@ -82,6 +82,9 @@
 	  <Compile Update="AppShellAuth.xaml.cs">
 	    <DependentUpon>AppShellAuth.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\CustomPage.xaml.cs">
+	    <DependentUpon>CustomPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -89,6 +92,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="AppShellAuth.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CustomPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CartPage.xaml">

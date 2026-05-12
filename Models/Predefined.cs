@@ -8,9 +8,9 @@ namespace CakeGrandOrder.Models
 {
     class Predefined
     {
-        public enum Tags { Weeding, Birthday, birthday50, birthday100 }
+        public enum Tags { Wedding, Birthday, birthday50, birthday100 }
         public string Id { get; set; }
-        //public Cake cake { get; set; }
+        public Cake cake { get; set; }
         public string name { get; set; }
         public Tags tag { get; set; }
     }

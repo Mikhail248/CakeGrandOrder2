@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CakeGrandOrder.Views.CustomPage"
+             Title="CustomPage">
+    <VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding CakeList}" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="0" ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                        <Label Text="CakeName: " VerticalOptions="Center" Grid.Row="0" Grid.Column="0"/>
+                        <Label Text="{Binding CakeName}" VerticalOptions="Center" Grid.Row="0" Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
