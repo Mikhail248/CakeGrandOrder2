@@ -45,7 +45,7 @@ namespace CakeGrandOrder.CakeGrandOrder.Services
             predefinedCakes = new List<Predefined>();
             {
                 predefinedCakes.Add(new Predefined() { Id = "1", name = "Black Forest", tag = Predefined.Tags.Birthday });
-                predefinedCakes.Add(new Predefined() { Id = "2", name = "White Samba", tag = Predefined.Tags.Weeding });
+                predefinedCakes.Add(new Predefined() { Id = "2", name = "White Samba", tag = Predefined.Tags.Wedding });
             }
         }
         public List<Cake> GetCakes()
