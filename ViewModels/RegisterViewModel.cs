@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CakeGrandOrder.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,6 +61,8 @@ namespace CakeGrandOrder.ViewModels
         public ICommand TogglePasswordCommand { get; set; }
         public ICommand LinkToLoginPageCommand { get; set; }
         public ICommand ResetCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -68,6 +71,7 @@ namespace CakeGrandOrder.ViewModels
             TogglePasswordCommand = new Command(ToggleViewPassword);
             LinkToLoginPageCommand = new Command(async () => await LinkToLoginPage());
             ResetCommand = new Command(ResetField);
+            RegisterCommand = new Command(async () => await Register());
         }
         #endregion
 
@@ -84,6 +88,16 @@ namespace CakeGrandOrder.ViewModels
         {
             UserName = "";
             UserPassword = "";
+        }
+        private async Task Register()
+        {
+            bool succseed = await AppService.GetInstance().TryRegister(UserName, UserPassword, UserName);
+            if (succseed)
+            {
+                ///await Shell.Current.GoToAsync("//OrdersPage");
+                ((App)Application.Current).SetAuthenticatedShell();
+                ///await Shell.Current.GoToAsync("//DefaultCakesPage");
+            }
         }
         #endregion
     }

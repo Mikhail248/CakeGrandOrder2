@@ -189,36 +189,7 @@
                                             </Image.Triggers>
                                         </Image>
 
-                                        <!--
-                                         <Image
-     Source="base2.png"
-     Grid.Row="7"
-     Grid.Column="0"/>
-                                        <Image
-     Source="filling3.png"
-     Grid.Row="6"
-     Grid.Column="0"/>
-                                        <Image
-Source="base2.png"
-Grid.Row="5"
-Grid.Column="0"/>
-                                        <Image
-Source="filling3.png"
-Grid.Row="4"
-Grid.Column="0"/>
-                                        <Image
-Source="base2.png"
-Grid.Row="3"
-Grid.Column="0"/>
-                                        <Image
-Source="filling3.png"
-Grid.Row="2"
-Grid.Column="0"/>
-
-                                        <Image
-Source="top1.png"
-Grid.Row="1"
-Grid.Column="0"/>-->
+                                        
                                         <VerticalStackLayout Grid.Column="1" Spacing="10">
 
                                             <Label

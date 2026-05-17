@@ -10,6 +10,7 @@
             <Button Grid.Column="1" Text="SP" Command="{Binding TogglePasswordCommand}"/>
         </Grid>
         <Button Command="{Binding ResetCommand}" Text="Reset Field"/>
+        <Button Command="{Binding RegisterCommand}" Text="Register"/>
         <Button Text="Already have an account?" Command="{Binding LinkToLoginPageCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

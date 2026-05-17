@@ -1,18 +1,19 @@
-﻿using Firebase.Auth;
+﻿using CakeGrandOrder.Models;
+using CakeGrandOrder.ViewModels;
+using Firebase.Auth;
 using Firebase.Auth.Providers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CakeGrandOrder.Models;
 using Firebase.Auth.Repository;
 using Firebase.Database;
 using Firebase.Database.Query;
-using System.Runtime.ConstrainedExecution;
 using Microsoft.Maui.ApplicationModel.Communication;
-using CakeGrandOrder.ViewModels;
 using Microsoft.Maui.Storage;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.ConstrainedExecution;
+using System.Text;
+using System.Threading.Tasks;
+using static Android.Provider.ContactsContract.CommonDataKinds;
 
 
 namespace CakeGrandOrder.Services
@@ -89,6 +90,18 @@ namespace CakeGrandOrder.Services
                 //        fullName = fullName
                 //    });
 
+                uid = respond.User.Uid;
+                loginAuthUser = respond.AuthCredential;
+
+                await client
+                    .Child("users")
+                    .Child(uid)
+                    .PutAsync(new
+                    {
+                        FullName = fullName,
+                        Email = respond.User.Info.Email
+                    });
+
                 return true;
             }
             catch (Exception ex)
@@ -96,10 +109,10 @@ namespace CakeGrandOrder.Services
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     ex.Message,
-                    "OK"
-                );
+                    "OK");
 
                 return false;
+
             }
         }
 
