@@ -4,13 +4,19 @@
              x:Class="CakeGrandOrder.Views.CartPage"
              Title="CartPage">
     <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding CakeList}" Grid.Row="1">
+        <CollectionView ItemsSource="{Binding OrderList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <CollectionView ItemsSource="{Binding Cakes}" Grid.Row="1">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="0" ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
                         <Label Text="CakeName: " VerticalOptions="Center" Grid.Row="0" Grid.Column="0"/>
                         <Label Text="{Binding CakeName}" VerticalOptions="Center" Grid.Row="0" Grid.Column="1"/>
                     </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            </CollectionView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
