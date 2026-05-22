@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CakeGrandOrder.ViewModels"
              x:Class="CakeGrandOrder.Views.CartPage"
              Title="CartPage">
     <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding OrderList}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <CollectionView ItemsSource="{Binding Cakes}" Grid.Row="1">
+        <CollectionView ItemsSource="{Binding CartList}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="0" ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
                         <Label Text="CakeName: " VerticalOptions="Center" Grid.Row="0" Grid.Column="0"/>
                         <Label Text="{Binding CakeName}" VerticalOptions="Center" Grid.Row="0" Grid.Column="1"/>
                     </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            </CollectionView>
+                           
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Button
+    Grid.Row="9"
+    Grid.ColumnSpan="2"
+    Command="{Binding OrderCart}"
+    Text="order" />
     </VerticalStackLayout>
 </ContentPage>

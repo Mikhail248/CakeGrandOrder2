@@ -3,7 +3,9 @@ using CakeGrandOrder.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,15 +14,16 @@ namespace CakeGrandOrder.ViewModels;
     internal class CartViewModel : ViewModelBase
     {
         #region Get Set
-        private ObservableCollection<Cake> cakeList;
-        public ObservableCollection<Cake> CakeList
+
+        private ObservableCollection<Cake> cartList;
+        public ObservableCollection<Cake> CartList
         {
-            get { return cakeList; }
+            get { return cartList; }
             set
             {
                 if (value != null)
                 {
-                    cakeList = value;
+                cartList = value;
                     OnPropertyChanged();
                 }
             }
@@ -34,8 +37,9 @@ namespace CakeGrandOrder.ViewModels;
         #region Constructor
         public CartViewModel()
         {
-            InitAsync();
-        OrderCart = new Command<List<Cake>>(async (cakes) => await CakeOrderCart(cakes));
+        InitAsync();
+
+        OrderCart = new Command<List<Cake>>(async(a) => await CakeOrderCart());
 
         }
         #endregion
@@ -44,10 +48,12 @@ namespace CakeGrandOrder.ViewModels;
 
         private async Task InitAsync()
         {
-            CakeList = new ObservableCollection<Cake>(await AppService.GetInstance().GetCakesAsync());
+        CartList = new ObservableCollection<Cake>(await AppService.GetInstance().GetCartAsync());
         }
-        private async Task CakeOrderCart(List<Cake> cakes)
+        private async Task CakeOrderCart()
         {
+        List<Cake> cakes = await AppService.GetInstance().GetCartAsync();
+
         var order = new Order()
         {
             Cakes = cakes,
@@ -61,12 +67,9 @@ namespace CakeGrandOrder.ViewModels;
             {
                 order.Cakes.Add(cakes.First());
             }
-            
-            ;
         }
-
         AppService.GetInstance();
-            await Shell.Current.GoToAsync("//");
+        await AppService.GetInstance().CleanCartAsync();
         }
         #endregion
     }

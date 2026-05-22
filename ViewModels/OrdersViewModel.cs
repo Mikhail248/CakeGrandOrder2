@@ -144,8 +144,8 @@ namespace CakeGrandOrder.ViewModels
                 Cakes = new List<Cake> { cake },
                 Date = DateTime.Now
             };
-            bool tf = await AppService.GetInstance().CreateCakeOrder(order);
-            if(tf) order.Cakes.Add(cake);
+            bool tf = await AppService.GetInstance().AddToCart(cake);
+            if (tf) order.Cakes.Add(cake);
             await Shell.Current.GoToAsync("//CartPage");
         }
         public async Task CakeImage(Cake cake)

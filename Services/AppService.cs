@@ -175,7 +175,7 @@ namespace CakeGrandOrder.Services
                 throw;
             }
         }
-        /*public async Task<List<Order>?> GetOrderCakesAsync()
+        public async Task<List<Order>?> GetOrderCakesAsync()
         {
             try
             {
@@ -195,7 +195,8 @@ namespace CakeGrandOrder.Services
                 throw ex;
             }
         }
-        */
+        
+        /*
         public async Task<List<Order>?> GetOrderCakesAsync()
         {
             try
@@ -226,7 +227,7 @@ namespace CakeGrandOrder.Services
             public string Id { get; set; }
             public Dictionary<string, Cake> Cakes { get; set; }
             public DateTime Date { get; set; }
-        }
+        }*/
         public async Task<bool> CreateCakeOrder(Order order)
         {
             try
@@ -244,7 +245,60 @@ namespace CakeGrandOrder.Services
 
             return true;
         }
+        public async Task<bool> AddToCart(Cake cake)
+        {
+            try
+            {
+                var result = await client
+                  .Child("users")
+                  .Child(uid)
+                  .Child("cart")
+                  .PostAsync(cake);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
         
-        
+        public async Task<List<Cake>?> GetCartAsync()
+        {
+            try
+            {
+                var results = await client
+                  .Child("users")
+                  .Child(uid)
+                  .Child("cart")
+                  .OnceAsync<Cake>();
+                List<Cake> cakes = results.Select(fbItm => new Cake() { Id = fbItm.Key, CakeName = fbItm.Object.CakeName, Price = fbItm.Object.Price, Fat = fbItm.Object.Fat, Sugar = fbItm.Object.Sugar, CakeBase = fbItm.Object.CakeBase, CakeFilling = fbItm.Object.CakeFilling, BaseNum = fbItm.Object.BaseNum, Construction = fbItm.Object.Construction, Top = fbItm.Object.Top }).ToList();
+                return cakes;
+                ///fbItm => new Cake() { Id = fbItm.Key, CakeName = fbItm.Object.CakeName, Price = fbItm.Object.Price, Fat = fbItm.Object.Fat, Sugar = fbItm.Object.Sugar, CakeBase = fbItm.Object.CakeBase, CakeFilling = fbItm.Object.CakeFilling, BaseNum = fbItm.Object.BaseNum, Construction = fbItm.Object.Construction, Top = fbItm.Object.Top }
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task CleanCartAsync()
+        {
+            try
+            {
+                await client
+                  .Child("users")
+                  .Child(uid)
+                  .Child("cart")
+                  .DeleteAsync();
+                
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
