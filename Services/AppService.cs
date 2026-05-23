@@ -287,12 +287,12 @@ namespace CakeGrandOrder.Services
             try
             {
                 await client
-                  .Child("users")
-                  .Child(uid)
-                  .Child("cart")
-                  .DeleteAsync();
-                
+            .Child("users")
+            .Child(uid)
+            .Child("cart")
+            .DeleteAsync();
 
+                Console.WriteLine("Deleted");
             }
             catch (Exception ex)
             {

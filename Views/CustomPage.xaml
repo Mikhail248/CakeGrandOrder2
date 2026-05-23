@@ -4,11 +4,23 @@
              x:Class="CakeGrandOrder.Views.CustomPage"
              Title="CustomPage">
     <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding CakeList}" Grid.Row="1">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <Label Text="Create your custom cake"/>
+        <Label Text="CakeBase: 1 - Biscuit;	2 - Chocolate"/>
+        <Label Text="CakeFilling: 1 - Creame;	2 - Chocolate;	3 - Apple"/>
+        <Label Text="Construction: 1 - All bases are equal;	2 - Small base on medium base on big base"/>
+        <Label Text="Top: 1 - Cherry;	2 - Chocolate figure;	3 - Candle"/>
+        <Entry Placeholder="Id" Text="{Binding Id}"/>
+        <Entry Placeholder="CakeName" Text="{Binding CakeName}"/>
+        <Entry Placeholder="Fat" Text="{Binding Fat}"/>
+        <Entry Placeholder="Sugar" Text="{Binding Sugar}"/>
+        <Entry Placeholder="CakeBase" Text="{Binding CakeBase}"/>
+        <Entry Placeholder="CakeFilling" Text="{Binding CakeFilling}"/>
+        <Entry Placeholder="BaseNum" Text="{Binding BaseNum}"/>
+        <Entry Placeholder="Construction" Text="{Binding Construction}"/>
+        <Entry Placeholder="Top" Text="{Binding Top}"/>
+        
+
+        <Button Command="{Binding OrderCommand}" Text="Order"/>
+
     </VerticalStackLayout>
 </ContentPage>

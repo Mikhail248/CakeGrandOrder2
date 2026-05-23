@@ -8,6 +8,24 @@ namespace CakeGrandOrder.Models
 {
     class Cake
     {
+        public Cake()
+        {
+        }
+
+        public Cake(string id, string cakeName, int price, int fat, int sugar, int cakeBase, int cakeFilling, int baseNum, int construction, int top)
+        {
+            Id = id;
+            CakeName = cakeName;
+            Price = price;
+            Fat = fat;
+            Sugar = sugar;
+            CakeBase = cakeBase;
+            CakeFilling = cakeFilling;
+            BaseNum = baseNum;
+            Construction = construction;
+            Top = top;
+        }
+
         public string Id { get; set; }
         public string CakeName { get; set; }
         public int Price { get; set; }
@@ -19,12 +37,12 @@ namespace CakeGrandOrder.Models
         public int Construction { get; set; }
         public int Top { get; set; }
 
-        public bool W1 { get { if (CakeFilling == 2 && BaseNum >= 1) { return true; } return false; } }
-        public bool W2 { get { if (CakeFilling == 2 && BaseNum >= 2) { return true; } return false; } }
-        public bool W3 { get { if (CakeFilling == 2 && BaseNum >= 3) { return true; } return false; } }
-        public bool B1 { get { if (CakeFilling == 1 && BaseNum >= 1) { return true; } return false; } }
-        public bool B2 { get { if (CakeFilling == 1 && BaseNum >= 2) { return true; } return false; } }
-        public bool B3 { get { if (CakeFilling == 1 && BaseNum >= 3) { return true; } return false; } }
+        public bool W1 { get { if (BaseNum >= 1) { return true; } return false; } }
+        public bool W2 { get { if (BaseNum >= 2) { return true; } return false; } }
+        public bool W3 { get { if (BaseNum >= 3) { return true; } return false; } }
+        public bool B1 { get { if (BaseNum >= 1) { return true; } return false; } }
+        public bool B2 { get { if (BaseNum >= 2) { return true; } return false; } }
+        public bool B3 { get { if (BaseNum >= 3) { return true; } return false; } }
         public int Con1 { get { if (Construction == 1) { return 400; } return 400; } }
         public int Con2 { get { if (Construction == 1) { return 400; } return 200; } }
         public int Con3 { get { if (Construction == 1) { return 400; } return 100; } }

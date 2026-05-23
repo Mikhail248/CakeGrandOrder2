@@ -61,14 +61,14 @@ namespace CakeGrandOrder.ViewModels;
         };
         bool tf = await AppService.GetInstance().CreateCakeOrder(order);
 
-        if (tf)
+        /*if (tf)
         {
             while (cakes != null)
             {
                 order.Cakes.Add(cakes.First());
             }
-        }
-        AppService.GetInstance();
+        }*/
+
         await AppService.GetInstance().CleanCartAsync();
         }
         #endregion

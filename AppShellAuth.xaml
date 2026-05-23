@@ -15,6 +15,11 @@
     ContentTemplate="{DataTemplate local:CartPage}"
     Route="CartPage" />
     <ShellContent
+  Title="Custom Cakes"
+  ContentTemplate="{DataTemplate local:CustomPage}"
+  Route="CustomPage" />
+
+    <ShellContent
 Title="Orders"
 ContentTemplate="{DataTemplate local:OrdersPage}"
 Route="OrdersPage" />
