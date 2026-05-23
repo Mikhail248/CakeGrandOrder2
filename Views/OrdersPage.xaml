@@ -4,297 +4,186 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:CakeGrandOrder.ViewModels"
-    Title="OrdersPage">
-    <ContentPage.Resources />
-    <Grid RowDefinitions="Auto,*">
-        <Label Text="Here are your orders" />
-        <CollectionView Grid.Row="1" ItemsSource="{Binding OrderList}">
+    Title="Orders">
+
+    <Grid RowDefinitions="Auto,*" Padding="12">
+
+        <Label
+            Text="Your orders"
+            FontSize="24"
+            FontAttributes="Bold"
+            Margin="0,0,0,12" />
+
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding OrderList}">
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout Padding="10" Spacing="20">
-                        <Label Text="{Binding Date}" />
 
-                        <CollectionView ItemsSource="{Binding Cakes}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
+                    <Border
+                        Stroke="LightGray"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 14"
+                        Padding="12"
+                        Margin="0,0,0,16">
 
-                                    <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*,*,*,*">
+                        <VerticalStackLayout Spacing="12">
 
-                                        <Image
-                                            Grid.Row="7"
-                                            IsVisible="{Binding B3}"
-                                            WidthRequest="{Binding Con1}">
-                                            <Image.Triggers>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeBase}"
-                                                    TargetType="Image"
-                                                    Value="1">
-                                                    <Setter Property="Source" Value="base1.png" />
-                                                </DataTrigger>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeBase}"
-                                                    TargetType="Image"
-                                                    Value="2">
-                                                    <Setter Property="Source" Value="base2.png" />
-                                                </DataTrigger>
-                                            </Image.Triggers>
-                                        </Image>
+                            <Label
+                                Text="{Binding Date, StringFormat='Order date: {0}'}"
+                                FontAttributes="Bold"
+                                FontSize="16" />
 
-                                        <Image
-                                            Grid.Row="6"
-                                            IsVisible="{Binding W3}"
-                                            WidthRequest="{Binding Con1}">
-                                            <Image.Triggers>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeFilling}"
-                                                    TargetType="Image"
-                                                    Value="1">
-                                                    <Setter Property="Source" Value="filling1.png" />
-                                                </DataTrigger>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeFilling}"
-                                                    TargetType="Image"
-                                                    Value="2">
-                                                    <Setter Property="Source" Value="filling2.png" />
-                                                </DataTrigger>
+                            <CollectionView ItemsSource="{Binding Cakes}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
 
-                                                <DataTrigger
-                                                    Binding="{Binding CakeFilling}"
-                                                    TargetType="Image"
-                                                    Value="3">
-                                                    <Setter Property="Source" Value="filling3.png" />
-                                                </DataTrigger>
+                                        <Border
+                                            Stroke="#DDDDDD"
+                                            StrokeThickness="1"
+                                            StrokeShape="RoundRectangle 12"
+                                            Padding="10"
+                                            Margin="0,0,0,10">
 
-                                            </Image.Triggers>
-                                        </Image>
-                                        <Image
-                                            Grid.Row="5"
-                                            IsVisible="{Binding B2}"
-                                            WidthRequest="{Binding Con2}">
-                                            <Image.Triggers>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeBase}"
-                                                    TargetType="Image"
-                                                    Value="1">
-                                                    <Setter Property="Source" Value="base1.png" />
-                                                </DataTrigger>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeBase}"
-                                                    TargetType="Image"
-                                                    Value="2">
-                                                    <Setter Property="Source" Value="base2.png" />
-                                                </DataTrigger>
-                                            </Image.Triggers>
-                                        </Image>
+                                            <Grid ColumnDefinitions="200,*"
+                                                  ColumnSpacing="12"
+                                                 RowSpacing="0" >
 
-                                        <Image
-                                            Grid.Row="4"
-                                            IsVisible="{Binding W2}"
-                                            WidthRequest="{Binding Con2}">
-                                            <Image.Triggers>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeFilling}"
-                                                    TargetType="Image"
-                                                    Value="1">
-                                                    <Setter Property="Source" Value="filling1.png" />
-                                                </DataTrigger>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeFilling}"
-                                                    TargetType="Image"
-                                                    Value="2">
-                                                    <Setter Property="Source" Value="filling2.png" />
-                                                </DataTrigger>
+                                                <Grid Grid.Column="0"
+                                                      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                                                      VerticalOptions="Center">
 
-                                                <DataTrigger
-                                                    Binding="{Binding CakeFilling}"
-                                                    TargetType="Image"
-                                                    Value="3">
-                                                    <Setter Property="Source" Value="filling3.png" />
-                                                </DataTrigger>
+                                                    <Image Grid.Row="0" HeightRequest="30" WidthRequest="80">
+                                                        <Image.Triggers>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding Top}" Value="1">
+                                                                <Setter Property="Source" Value="top1.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding Top}" Value="2">
+                                                                <Setter Property="Source" Value="top2.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding Top}" Value="3">
+                                                                <Setter Property="Source" Value="top3.png" />
+                                                            </DataTrigger>
+                                                        </Image.Triggers>
+                                                    </Image>
 
-                                            </Image.Triggers>
-                                        </Image>
+                                                    <Image Grid.Row="1" IsVisible="{Binding W1}" HeightRequest="30" WidthRequest="{Binding Con3}">
+                                                        <Image.Triggers>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="1">
+                                                                <Setter Property="Source" Value="filling1.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="2">
+                                                                <Setter Property="Source" Value="filling2.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="3">
+                                                                <Setter Property="Source" Value="filling3.png" />
+                                                            </DataTrigger>
+                                                        </Image.Triggers>
+                                                    </Image>
 
-                                        <Image
-                                            Grid.Row="3"
-                                            IsVisible="{Binding B1}"
-                                            WidthRequest="{Binding Con3}">
-                                            <Image.Triggers>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeBase}"
-                                                    TargetType="Image"
-                                                    Value="1">
-                                                    <Setter Property="Source" Value="base1.png" />
-                                                </DataTrigger>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeBase}"
-                                                    TargetType="Image"
-                                                    Value="2">
-                                                    <Setter Property="Source" Value="base2.png" />
-                                                </DataTrigger>
-                                            </Image.Triggers>
-                                        </Image>
+                                                    <Image Grid.Row="2" IsVisible="{Binding B1}" HeightRequest="30" WidthRequest="{Binding Con3}">
+                                                        <Image.Triggers>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeBase}" Value="1">
+                                                                <Setter Property="Source" Value="base1.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeBase}" Value="2">
+                                                                <Setter Property="Source" Value="base2.png" />
+                                                            </DataTrigger>
+                                                        </Image.Triggers>
+                                                    </Image>
 
-                                        <Image
-                                            Grid.Row="2"
-                                            IsVisible="{Binding W1}"
-                                            WidthRequest="{Binding Con3}">
-                                            <Image.Triggers>
+                                                    <Image Grid.Row="3" IsVisible="{Binding W2}" HeightRequest="30" WidthRequest="{Binding Con2}">
+                                                        <Image.Triggers>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="1">
+                                                                <Setter Property="Source" Value="filling1.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="2">
+                                                                <Setter Property="Source" Value="filling2.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="3">
+                                                                <Setter Property="Source" Value="filling3.png" />
+                                                            </DataTrigger>
+                                                        </Image.Triggers>
+                                                    </Image>
 
-                                                <DataTrigger
-                                                    Binding="{Binding CakeFilling}"
-                                                    TargetType="Image"
-                                                    Value="1">
-                                                    <Setter Property="Source" Value="filling1.png" />
-                                                </DataTrigger>
-                                                <DataTrigger
-                                                    Binding="{Binding CakeFilling}"
-                                                    TargetType="Image"
-                                                    Value="2">
-                                                    <Setter Property="Source" Value="filling2.png" />
-                                                </DataTrigger>
+                                                    <Image Grid.Row="4" IsVisible="{Binding B2}" HeightRequest="30" WidthRequest="{Binding Con2}">
+                                                        <Image.Triggers>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeBase}" Value="1">
+                                                                <Setter Property="Source" Value="base1.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeBase}" Value="2">
+                                                                <Setter Property="Source" Value="base2.png" />
+                                                            </DataTrigger>
+                                                        </Image.Triggers>
+                                                    </Image>
 
-                                                <DataTrigger
-                                                    Binding="{Binding CakeFilling}"
-                                                    TargetType="Image"
-                                                    Value="3">
-                                                    <Setter Property="Source" Value="filling3.png" />
-                                                </DataTrigger>
+                                                    <Image Grid.Row="5" IsVisible="{Binding W3}" HeightRequest="30" WidthRequest="{Binding Con1}">
+                                                        <Image.Triggers>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="1">
+                                                                <Setter Property="Source" Value="filling1.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="2">
+                                                                <Setter Property="Source" Value="filling2.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="3">
+                                                                <Setter Property="Source" Value="filling3.png" />
+                                                            </DataTrigger>
+                                                        </Image.Triggers>
+                                                    </Image>
 
-                                            </Image.Triggers>
-                                        </Image>
+                                                    <Image Grid.Row="6" IsVisible="{Binding B3}" HeightRequest="30" WidthRequest="{Binding Con1}">
+                                                        <Image.Triggers>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeBase}" Value="1">
+                                                                <Setter Property="Source" Value="base1.png" />
+                                                            </DataTrigger>
+                                                            <DataTrigger TargetType="Image" Binding="{Binding CakeBase}" Value="2">
+                                                                <Setter Property="Source" Value="base2.png" />
+                                                            </DataTrigger>
+                                                        </Image.Triggers>
+                                                    </Image>
 
-                                        <Image Grid.Row="1">
-                                            <Image.Triggers>
-                                                <DataTrigger
-                                                    Binding="{Binding Top}"
-                                                    TargetType="Image"
-                                                    Value="1">
-                                                    <Setter Property="Source" Value="top1.png" />
-                                                </DataTrigger>
-                                                <DataTrigger
-                                                    Binding="{Binding Top}"
-                                                    TargetType="Image"
-                                                    Value="2">
-                                                    <Setter Property="Source" Value="top2.png" />
-                                                </DataTrigger>
+                                                </Grid>
 
-                                                <DataTrigger
-                                                    Binding="{Binding Top}"
-                                                    TargetType="Image"
-                                                    Value="3">
-                                                    <Setter Property="Source" Value="top3.png" />
-                                                </DataTrigger>
+                                                <VerticalStackLayout Grid.Column="1" Spacing="0">
 
-                                            </Image.Triggers>
-                                        </Image>
+                                                    <Label
+                                                        Text="{Binding CakeName}"
+                                                        FontSize="18"
+                                                        FontAttributes="Bold" />
 
-                                        
-                                        <VerticalStackLayout Grid.Column="1" Spacing="10">
+                                                    <Label Text="{Binding Price, StringFormat='Price: {0}'}" />
+                                                    <Label Text="{Binding Fat, StringFormat='Fat: {0}'}" />
+                                                    <Label Text="{Binding Sugar, StringFormat='Sugar: {0}'}" />
+                                                    <Label Text="{Binding CakeBase, StringFormat='Base: {0}'}" />
+                                                    <Label Text="{Binding CakeFilling, StringFormat='Filling: {0}'}" />
+                                                    <Label Text="{Binding BaseNum, StringFormat='Bases: {0}'}" />
+                                                    <Label Text="{Binding Construction, StringFormat='Construction: {0}'}" />
+                                                    <Label Text="{Binding Top, StringFormat='Top: {0}'}" />
+                                                    <Button
+       Margin="0,8,0,0"
+    Command="{Binding OrderDefaultCakeCommand, Source={x:RelativeSource AncestorType={x:Type viewmodels:OrdersViewModel}, Mode=FindAncestorBindingContext}}"
+    CommandParameter="{Binding .}"
+    Text="Reorder" />
+                                                  
 
-                                            <Label
-                                                Grid.Row="1"
-                                                Grid.Column="0"
-                                                Text=" Price: "
-                                                VerticalOptions="Center" />
-                                            <Label
-                                                Grid.Row="1"
-                                                Grid.Column="1"
-                                                Text="{Binding Price}"
-                                                VerticalOptions="Center" />
+                                                </VerticalStackLayout>
 
-                                            <Label
-                                                Grid.Row="2"
-                                                Grid.Column="0"
-                                                Text=" Fat: "
-                                                VerticalOptions="Center" />
-                                            <Label
-                                                Grid.Row="2"
-                                                Grid.Column="1"
-                                                Text="{Binding Fat}"
-                                                VerticalOptions="Center" />
+                                            </Grid>
 
-                                            <Label
-                                                Grid.Row="3"
-                                                Grid.Column="0"
-                                                Text=" Sugar: "
-                                                VerticalOptions="Center" />
-                                            <Label
-                                                Grid.Row="3"
-                                                Grid.Column="1"
-                                                Text="{Binding Sugar}"
-                                                VerticalOptions="Center" />
+                                        </Border>
 
-                                            <Label
-                                                Grid.Row="4"
-                                                Grid.Column="0"
-                                                Text=" CakeBase: "
-                                                VerticalOptions="Center" />
-                                            <Label
-                                                Grid.Row="4"
-                                                Grid.Column="1"
-                                                Text="{Binding CakeBase}"
-                                                VerticalOptions="Center" />
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
 
-                                            <Label
-                                                Grid.Row="5"
-                                                Grid.Column="0"
-                                                Text=" CakeFilling: "
-                                                VerticalOptions="Center" />
-                                            <Label
-                                                Grid.Row="5"
-                                                Grid.Column="1"
-                                                Text="{Binding CakeFilling}"
-                                                VerticalOptions="Center" />
+                        </VerticalStackLayout>
 
-                                            <Label
-                                                Grid.Row="6"
-                                                Grid.Column="0"
-                                                Text=" BaseNum: "
-                                                VerticalOptions="Center" />
-                                            <Label
-                                                Grid.Row="6"
-                                                Grid.Column="1"
-                                                Text="{Binding BaseNum}"
-                                                VerticalOptions="Center" />
+                    </Border>
 
-                                            <Label
-                                                Grid.Row="7"
-                                                Grid.Column="0"
-                                                Text=" Construction: "
-                                                VerticalOptions="Center" />
-                                            <Label
-                                                Grid.Row="7"
-                                                Grid.Column="1"
-                                                Text="{Binding Construction}"
-                                                VerticalOptions="Center" />
-
-                                            <Label
-                                                Grid.Row="8"
-                                                Grid.Column="0"
-                                                Text=" Top: "
-                                                VerticalOptions="Center" />
-                                            <Label
-                                                Grid.Row="8"
-                                                Grid.Column="1"
-                                                Text="{Binding Top}"
-                                                VerticalOptions="Center" />
-
-                                            <Button
-                                                Grid.Row="9"
-                                                Grid.ColumnSpan="2"
-                                                Command="{Binding OrderDefaultCakeCommand, Source={x:RelativeSource AncestorType={x:Type viewmodels:OrdersViewModel}, Mode=FindAncestorBindingContext}}"
-                                                CommandParameter="{Binding .}"
-                                                Text="Reorder" />
-                                        </VerticalStackLayout>
-                                    </Grid>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </Grid>
 
+    </Grid>
 </ContentPage>

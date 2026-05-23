@@ -43,9 +43,9 @@ namespace CakeGrandOrder.Models
         public bool B1 { get { if (BaseNum >= 1) { return true; } return false; } }
         public bool B2 { get { if (BaseNum >= 2) { return true; } return false; } }
         public bool B3 { get { if (BaseNum >= 3) { return true; } return false; } }
-        public int Con1 { get { if (Construction == 1) { return 400; } return 400; } }
-        public int Con2 { get { if (Construction == 1) { return 400; } return 200; } }
-        public int Con3 { get { if (Construction == 1) { return 400; } return 100; } }
+        public int Con1 { get { if (Construction == 1) { return 200; } return 200; } }
+        public int Con2 { get { if (Construction == 1) { return 200; } return 100; } }
+        public int Con3 { get { if (Construction == 1) { return 200; } return 50; } }
 
     }
 }

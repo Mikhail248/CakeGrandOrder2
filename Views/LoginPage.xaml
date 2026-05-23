@@ -1,16 +1,106 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CakeGrandOrder.Views.LoginPage"
-             Title="LoginPage">
-    <VerticalStackLayout>
-        <Entry Placeholder="User Name" Text="{Binding UserName}"/>
-        <Grid  ColumnDefinitions="*,Auto">
-            <Entry Grid.Column="0" Placeholder="Password" Text="{Binding UserPassword}" IsPassword="{Binding ShowPassword}"/>
-            <Button Grid.Column="1" Text="SP" Command="{Binding TogglePasswordCommand}"/>
-        </Grid>
-        <Button Command="{Binding ResetCommand}" Text="Reset Field"/>
-        <Button Command="{Binding LoginCommand}" Text="Login"/>
-        <Button Text="Don't have an account?" Command="{Binding LinkToRegisterPageCommand}"/>
-    </VerticalStackLayout>
+<ContentPage
+    x:Class="CakeGrandOrder.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:CakeGrandOrder.ViewModels"
+    Title="LoginPage"
+    x:DataType="viewmodels:LoginViewModel">
+
+    <Grid Padding="40,60,40,40" RowDefinitions="Auto,*,Auto">
+
+        <!--  Header  -->
+        <VerticalStackLayout
+            Grid.Row="0"
+            Margin="0,0,0,50"
+            Spacing="10">
+            <Label
+                FontAttributes="Bold"
+                FontSize="36"
+                HorizontalOptions="Center"
+                Text="Welcome Back" />
+            <Label
+                FontSize="16"
+                HorizontalOptions="Center"
+                Opacity="0.7"
+                Text="Login to continue" />
+        </VerticalStackLayout>
+
+        <!--  Login Form  -->
+        <VerticalStackLayout
+            Grid.Row="1"
+            Spacing="24"
+            VerticalOptions="Center">
+
+            <!--  Username  -->
+            <Frame Padding="0" HasShadow="False">
+                <Entry
+                    Margin="16,12"
+                    FontSize="16"
+                    Placeholder="Username"
+                    Text="{Binding UserName}" />
+            </Frame>
+
+            <!--  Password  -->
+            <Frame Padding="0" HasShadow="False">
+                <Grid Padding="16,12" ColumnDefinitions="*,Auto">
+                    <Entry
+                        Grid.Column="0"
+                        FontSize="16"
+                        IsPassword="{Binding ShowPassword}"
+                        Placeholder="Password"
+                        Text="{Binding UserPassword}" />
+                    <Button
+                        Grid.Column="1"
+                        Padding="12,0"
+                        BackgroundColor="Transparent"
+                        Command="{Binding TogglePasswordCommand}"
+                        FontSize="12"
+                        Text="👁"
+                        TextColor="{StaticResource Gray500}" />
+                </Grid>
+            </Frame>
+
+            <!--  Reset Link  -->
+            <Label
+                FontSize="14"
+                HorizontalOptions="End"
+                Text="Reset Fields"
+                TextColor="{StaticResource Primary}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ResetCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!--  Login Button  -->
+            <Button
+                Margin="0,12,0,0"
+                Command="{Binding LoginCommand}"
+                CornerRadius="12"
+                FontAttributes="Bold"
+                FontSize="18"
+                HeightRequest="56"
+                Text="Login" />
+
+        </VerticalStackLayout>
+
+        <!--  Footer  -->
+        <StackLayout
+            Grid.Row="2"
+            HorizontalOptions="Center"
+            Orientation="Horizontal"
+            Spacing="6">
+            <Label FontSize="14" Text="Don't have an account?" />
+            <Label
+                FontAttributes="Bold"
+                FontSize="14"
+                Text="Sign Up"
+                TextColor="{StaticResource Primary}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LinkToRegisterPageCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+    </Grid>
+
 </ContentPage>

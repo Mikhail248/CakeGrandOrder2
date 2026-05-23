@@ -1,58 +1,71 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
-             x:Class="CakeGrandOrder.Views.DefaultCakesPage"
-             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:CakeGrandOrder.ViewModels"
-             Title="DefaultCakesPage">
-    <Grid RowDefinitions="Auto,*">
-        <VerticalStackLayout Grid.Row="0">
-            <Label Text="Choose your cake"/>
-            <Label Text="CakeBase: 1 - Biscuit;	2 - Chocolate"/>
-            <Label Text="CakeFilling: 1 - Creame;	2 - Chocolate;	3 - Apple"/>
-            <Label Text="Construction: 1 - All bases are equal;	2 - Small base on medium base on big base"/>
-            <Label Text="Top: 1 - Cherry;	2 - Chocolate figure;	3 - Candle"/>
+    x:Class="CakeGrandOrder.Views.DefaultCakesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:CakeGrandOrder.ViewModels"
+    Title="Choose Cake">
+
+    <Grid RowDefinitions="Auto,*" Padding="12">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,0,0,12">
+            <Label Text="Choose your cake"
+                   FontSize="24"
+                   FontAttributes="Bold" />
+
+            <Label Text="CakeBase: 1 - Biscuit, 2 - Chocolate" />
+            <Label Text="CakeFilling: 1 - Cream, 2 - Chocolate, 3 - Apple" />
+            <Label Text="Construction: 1 - Equal bases, 2 - Small / Medium / Big" />
+            <Label Text="Top: 1 - Cherry, 2 - Chocolate figure, 3 - Candle" />
         </VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding CakeList}" Grid.Row="1">
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding CakeList}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="0" ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
-                        <Label Text="CakeName: " VerticalOptions="Center" Grid.Row="0" Grid.Column="0"/>
-                        <Label Text="{Binding CakeName}" VerticalOptions="Center" Grid.Row="0" Grid.Column="1"/>
 
-                        <Label Text="	Price: " VerticalOptions="Center" Grid.Row="1" Grid.Column="0"/>
-                        <Label Text="{Binding Price}" VerticalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+                    <Border Stroke="LightGray"
+                            StrokeThickness="1"
+                            Padding="12"
+                            Margin="0,0,0,12"
+                            StrokeShape="RoundRectangle 12">
 
-                        <Label Text="	Fat: " VerticalOptions="Center" Grid.Row="2" Grid.Column="0"/>
-                        <Label Text="{Binding Fat}" VerticalOptions="Center" Grid.Row="2" Grid.Column="1"/>
+                        <VerticalStackLayout Spacing="10">
 
-                        <Label Text="	Sugar: " VerticalOptions="Center" Grid.Row="3" Grid.Column="0"/>
-                        <Label Text="{Binding Sugar}" VerticalOptions="Center" Grid.Row="3" Grid.Column="1"/>
+                            <Label Text="{Binding CakeName}"
+                                   FontSize="20"
+                                   FontAttributes="Bold" />
 
-                        <Label Text="	CakeBase: " VerticalOptions="Center" Grid.Row="4" Grid.Column="0"/>
-                        <Label Text="{Binding CakeBase}" VerticalOptions="Center" Grid.Row="4" Grid.Column="1"/>
+                            <Grid ColumnDefinitions="*,*"
+                                  RowDefinitions="Auto,Auto,Auto,Auto"
+                                  RowSpacing="6"
+                                  ColumnSpacing="16">
 
-                        <Label Text="	CakeFilling: " VerticalOptions="Center" Grid.Row="5" Grid.Column="0"/>
-                        <Label Text="{Binding CakeFilling}" VerticalOptions="Center" Grid.Row="5" Grid.Column="1"/>
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Price, StringFormat='Price: {0}'}" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Fat, StringFormat='Fat: {0}'}" />
 
-                        <Label Text="	BaseNum: " VerticalOptions="Center" Grid.Row="6" Grid.Column="0"/>
-                        <Label Text="{Binding BaseNum}" VerticalOptions="Center" Grid.Row="6" Grid.Column="1"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Sugar, StringFormat='Sugar: {0}'}" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding BaseNum, StringFormat='Bases: {0}'}" />
 
-                        <Label Text="	Construction: " VerticalOptions="Center" Grid.Row="7" Grid.Column="0"/>
-                        <Label Text="{Binding Construction}" VerticalOptions="Center" Grid.Row="7" Grid.Column="1"/>
+                                <Label Grid.Row="2" Grid.Column="0" Text="{Binding CakeBase, StringFormat='Base: {0}'}" />
+                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding CakeFilling, StringFormat='Filling: {0}'}" />
 
-                        <Label Text="	Top: " VerticalOptions="Center" Grid.Row="8" Grid.Column="0"/>
-                        <Label Text="{Binding Top}" VerticalOptions="Center" Grid.Row="8" Grid.Column="1"/>
-                        <Button
-    Grid.Row="9"
-    Grid.ColumnSpan="2"
-    Command="{Binding OrderDefaultCakeCommand, Source={x:RelativeSource AncestorType={x:Type viewmodels:DefaultCakesViewModel}, Mode=FindAncestorBindingContext}}"
-    CommandParameter="{Binding .}"
-    Text="Order" />
-                        
-                    </Grid>
+                                <Label Grid.Row="3" Grid.Column="0" Text="{Binding Construction, StringFormat='Construction: {0}'}" />
+                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Top, StringFormat='Top: {0}'}" />
+
+                            </Grid>
+
+                            <Button Text="Order"
+                                    Command="{Binding OrderDefaultCakeCommand, Source={x:RelativeSource AncestorType={x:Type viewmodels:DefaultCakesViewModel}, Mode=FindAncestorBindingContext}}"
+                                    CommandParameter="{Binding .}" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
     </Grid>
 </ContentPage>
