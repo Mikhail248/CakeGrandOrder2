@@ -52,9 +52,10 @@
 
                                                 <Grid Grid.Column="0"
                                                       RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
-                                                      VerticalOptions="Center">
+                                                      VerticalOptions="Center"
+                                                      RowSpacing="0">
 
-                                                    <Image Grid.Row="0" HeightRequest="30" WidthRequest="80">
+                                                    <Image Grid.Row="0" HeightRequest="30" WidthRequest="150" Aspect="Fill" Margin="0">
                                                         <Image.Triggers>
                                                             <DataTrigger TargetType="Image" Binding="{Binding Top}" Value="1">
                                                                 <Setter Property="Source" Value="top1.png" />
@@ -68,7 +69,7 @@
                                                         </Image.Triggers>
                                                     </Image>
 
-                                                    <Image Grid.Row="1" IsVisible="{Binding W1}" HeightRequest="30" WidthRequest="{Binding Con3}">
+                                                    <Image Grid.Row="1" IsVisible="{Binding W1}" HeightRequest="15" WidthRequest="{Binding Con3}" Aspect="Fill" Margin="0">
                                                         <Image.Triggers>
                                                             <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="1">
                                                                 <Setter Property="Source" Value="filling1.png" />
@@ -82,7 +83,7 @@
                                                         </Image.Triggers>
                                                     </Image>
 
-                                                    <Image Grid.Row="2" IsVisible="{Binding B1}" HeightRequest="30" WidthRequest="{Binding Con3}">
+                                                    <Image Grid.Row="2" IsVisible="{Binding B1}" HeightRequest="30" WidthRequest="{Binding Con3}" Aspect="Fill" Margin="0">
                                                         <Image.Triggers>
                                                             <DataTrigger TargetType="Image" Binding="{Binding CakeBase}" Value="1">
                                                                 <Setter Property="Source" Value="base1.png" />
@@ -93,7 +94,7 @@
                                                         </Image.Triggers>
                                                     </Image>
 
-                                                    <Image Grid.Row="3" IsVisible="{Binding W2}" HeightRequest="30" WidthRequest="{Binding Con2}">
+                                                    <Image Grid.Row="3" IsVisible="{Binding W2}" HeightRequest="15" WidthRequest="{Binding Con2}" Aspect="Fill" Margin="0">
                                                         <Image.Triggers>
                                                             <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="1">
                                                                 <Setter Property="Source" Value="filling1.png" />
@@ -107,7 +108,7 @@
                                                         </Image.Triggers>
                                                     </Image>
 
-                                                    <Image Grid.Row="4" IsVisible="{Binding B2}" HeightRequest="30" WidthRequest="{Binding Con2}">
+                                                    <Image Grid.Row="4" IsVisible="{Binding B2}" HeightRequest="30" WidthRequest="{Binding Con2}" Aspect="Fill" Margin="0">
                                                         <Image.Triggers>
                                                             <DataTrigger TargetType="Image" Binding="{Binding CakeBase}" Value="1">
                                                                 <Setter Property="Source" Value="base1.png" />
@@ -118,7 +119,7 @@
                                                         </Image.Triggers>
                                                     </Image>
 
-                                                    <Image Grid.Row="5" IsVisible="{Binding W3}" HeightRequest="30" WidthRequest="{Binding Con1}">
+                                                    <Image Grid.Row="5" IsVisible="{Binding W3}" HeightRequest="15" WidthRequest="{Binding Con1}" Aspect="Fill" Margin="0">
                                                         <Image.Triggers>
                                                             <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="1">
                                                                 <Setter Property="Source" Value="filling1.png" />
@@ -132,7 +133,7 @@
                                                         </Image.Triggers>
                                                     </Image>
 
-                                                    <Image Grid.Row="6" IsVisible="{Binding B3}" HeightRequest="30" WidthRequest="{Binding Con1}">
+                                                    <Image Grid.Row="6" IsVisible="{Binding B3}" HeightRequest="30" WidthRequest="{Binding Con1}" Aspect="Fill" Margin="0">
                                                         <Image.Triggers>
                                                             <DataTrigger TargetType="Image" Binding="{Binding CakeBase}" Value="1">
                                                                 <Setter Property="Source" Value="base1.png" />
