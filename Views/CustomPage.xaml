@@ -1,26 +1,86 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CakeGrandOrder.Views.CustomPage"
-             Title="CustomPage">
-    <VerticalStackLayout>
-        <Label Text="Create your custom cake"/>
-        <Label Text="CakeBase: 1 - Biscuit;	2 - Chocolate"/>
-        <Label Text="CakeFilling: 1 - Creame;	2 - Chocolate;	3 - Apple"/>
-        <Label Text="Construction: 1 - All bases are equal;	2 - Small base on medium base on big base"/>
-        <Label Text="Top: 1 - Cherry;	2 - Chocolate figure;	3 - Candle"/>
-        <Entry Placeholder="Id" Text="{Binding Id}"/>
-        <Entry Placeholder="CakeName" Text="{Binding CakeName}"/>
-        <Entry Placeholder="Fat" Text="{Binding Fat}"/>
-        <Entry Placeholder="Sugar" Text="{Binding Sugar}"/>
-        <Entry Placeholder="CakeBase" Text="{Binding CakeBase}"/>
-        <Entry Placeholder="CakeFilling" Text="{Binding CakeFilling}"/>
-        <Entry Placeholder="BaseNum" Text="{Binding BaseNum}"/>
-        <Entry Placeholder="Construction" Text="{Binding Construction}"/>
-        <Entry Placeholder="Top" Text="{Binding Top}"/>
-        
+<ContentPage
+    x:Class="CakeGrandOrder.Views.CustomPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Custom Cake">
 
-        <Button Command="{Binding OrderCommand}" Text="Order"/>
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="14">
 
-    </VerticalStackLayout>
+            <Label
+                Text="Create your custom cake"
+                FontSize="24"
+                FontAttributes="Bold" />
+
+            <Border
+                Stroke="LightGray"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 12"
+                Padding="12">
+
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="CakeBase: 1 - Biscuit, 2 - Chocolate" />
+                    <Label Text="CakeFilling: 1 - Cream, 2 - Chocolate, 3 - Apple" />
+                    <Label Text="Construction: 1 - Equal bases, 2 - Small / Medium / Big" />
+                    <Label Text="Top: 1 - Cherry, 2 - Chocolate figure, 3 - Candle" />
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Border
+                Stroke="LightGray"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 12"
+                Padding="12">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Entry Placeholder="Id"
+                           Text="{Binding Id}" />
+
+                    <Entry Placeholder="Cake name"
+                           Text="{Binding CakeName}" />
+
+                    <Entry Placeholder="Fat"
+                           Keyboard="Numeric"
+                           Text="{Binding Fat}" />
+
+                    <Entry Placeholder="Sugar"
+                           Keyboard="Numeric"
+                           Text="{Binding Sugar}" />
+
+                    <Entry Placeholder="Cake base"
+                           Keyboard="Numeric"
+                           Text="{Binding CakeBase}" />
+
+                    <Entry Placeholder="Cake filling"
+                           Keyboard="Numeric"
+                           Text="{Binding CakeFilling}" />
+
+                    <Entry Placeholder="Number of bases"
+                           Keyboard="Numeric"
+                           Text="{Binding BaseNum}" />
+
+                    <Entry Placeholder="Construction"
+                           Keyboard="Numeric"
+                           Text="{Binding Construction}" />
+
+                    <Entry Placeholder="Top"
+                           Keyboard="Numeric"
+                           Text="{Binding Top}" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Button
+                Text="Order"
+                HeightRequest="50"
+                FontAttributes="Bold"
+                Command="{Binding OrderCommand}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>
