@@ -29,7 +29,7 @@
                         Margin="0,0,0,16">
 
                         <VerticalStackLayout Spacing="12">
-
+                           
                             <Label
                                 Text="{Binding Date, StringFormat='Order date: {0}'}"
                                 FontAttributes="Bold"
@@ -68,7 +68,7 @@
                                                             </DataTrigger>
                                                         </Image.Triggers>
                                                     </Image>
-
+                                                   
                                                     <Image Grid.Row="1" IsVisible="{Binding W1}" HeightRequest="15" WidthRequest="{Binding Con3}" Aspect="Fill" Margin="0">
                                                         <Image.Triggers>
                                                             <DataTrigger TargetType="Image" Binding="{Binding CakeFilling}" Value="1">

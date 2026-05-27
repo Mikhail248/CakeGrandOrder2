@@ -56,20 +56,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiImage Remove="Resources\Images\filling1.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\Images\base1.png" />
-	  <None Remove="Resources\Images\base2.png" />
-	  <None Remove="Resources\Images\filling2.png" />
-	  <None Remove="Resources\Images\filling3.png" />
-	  <None Remove="Resources\Images\top1.png" />
-	  <None Remove="Resources\Images\top2.png" />
-	  <None Remove="Resources\Images\top3.png" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="FirebaseAuthentication.net" Version="4.1.0" />
 		<PackageReference Include="FirebaseDatabase.net" Version="5.0.0" />
 		<PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
