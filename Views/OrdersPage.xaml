@@ -51,9 +51,9 @@
                                                  RowSpacing="0" >
 
                                                 <Grid Grid.Column="0"
-                                                      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
-                                                      VerticalOptions="Center"
-                                                      RowSpacing="0">
+      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+      VerticalOptions="Center"
+      RowSpacing="0">
 
                                                     <Image Grid.Row="0" HeightRequest="100" WidthRequest="150" Aspect="Fill" Margin="0,-10,0,-10"  ZIndex="7">
                                                         <Image.Triggers>
