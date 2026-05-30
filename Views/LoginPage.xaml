@@ -8,7 +8,6 @@
 
     <Grid Padding="40,60,40,40" RowDefinitions="Auto,*,Auto">
 
-        <!--  Header  -->
         <VerticalStackLayout
             Grid.Row="0"
             Margin="0,0,0,50"
@@ -25,7 +24,6 @@
                 Text="Login to continue" />
         </VerticalStackLayout>
 
-        <!--  Login Form  -->
         <VerticalStackLayout
             Grid.Row="1"
             Spacing="24"
@@ -40,7 +38,6 @@
                     Text="{Binding UserName}" />
             </Frame>
 
-            <!--  Password  -->
             <Frame Padding="0" HasShadow="False">
                 <Grid Padding="16,12" ColumnDefinitions="*,Auto">
                     <Entry
@@ -60,7 +57,6 @@
                 </Grid>
             </Frame>
 
-            <!--  Reset Link  -->
             <Label
                 FontSize="14"
                 HorizontalOptions="End"
@@ -83,7 +79,6 @@
 
         </VerticalStackLayout>
 
-        <!--  Footer  -->
         <StackLayout
             Grid.Row="2"
             HorizontalOptions="Center"

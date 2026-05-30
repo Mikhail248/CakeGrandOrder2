@@ -22,7 +22,6 @@ namespace CakeGrandOrder.Services
 
         private ConnectivityService()
         {
-            // Subscribe to connectivity changes
             Connectivity.ConnectivityChanged += OnConnectivityChanged;
             wasConnected = Connectivity.NetworkAccess == NetworkAccess.Internet;
         }
@@ -33,12 +32,10 @@ namespace CakeGrandOrder.Services
 
             if (!isConnected && wasConnected)
             {
-                // Internet just disconnected
                 await ShowDisconnectedAlert();
             }
             else if (isConnected && !wasConnected)
             {
-                // Internet just reconnected
                 await ShowReconnectedMessage();
             }
 

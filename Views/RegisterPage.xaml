@@ -8,7 +8,7 @@
 
     <Grid Padding="40,60,40,40" RowDefinitions="Auto,*,Auto">
 
-        <!--  Header  -->
+        
         <VerticalStackLayout
             Grid.Row="0"
             Margin="0,0,0,50"
@@ -25,13 +25,11 @@
                 Text="Sign up to get started" />
         </VerticalStackLayout>
 
-        <!--  Register Form  -->
         <VerticalStackLayout
             Grid.Row="1"
             Spacing="24"
             VerticalOptions="Center">
 
-            <!--  Username  -->
             <Frame Padding="0" HasShadow="False">
                 <Entry
                     Margin="16,12"
@@ -40,7 +38,6 @@
                     Text="{Binding UserName}" />
             </Frame>
 
-            <!--  Password  -->
             <Frame Padding="0" HasShadow="False">
                 <Grid Padding="16,12" ColumnDefinitions="*,Auto">
                     <Entry
@@ -60,7 +57,6 @@
                 </Grid>
             </Frame>
 
-            <!--  Reset Link  -->
             <Label
                 FontSize="14"
                 HorizontalOptions="End"
@@ -71,7 +67,6 @@
                 </Label.GestureRecognizers>
             </Label>
 
-            <!--  Register Button  -->
             <Button
                 Margin="0,12,0,0"
                 Command="{Binding RegisterCommand}"
@@ -83,7 +78,6 @@
 
         </VerticalStackLayout>
 
-        <!--  Footer  -->
         <StackLayout
             Grid.Row="2"
             HorizontalOptions="Center"

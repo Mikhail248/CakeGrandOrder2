@@ -94,9 +94,9 @@ namespace CakeGrandOrder.ViewModels
             bool succseed = await AppService.GetInstance().TryRegister(UserName, UserPassword, UserName);
             if (succseed)
             {
-                ///await Shell.Current.GoToAsync("//OrdersPage");
+                
                 ((App)Application.Current).SetAuthenticatedShell();
-                ///await Shell.Current.GoToAsync("//DefaultCakesPage");
+                
             }
         }
         #endregion
