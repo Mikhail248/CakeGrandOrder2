@@ -1,4 +1,5 @@
-﻿using CakeGrandOrder.Models;
+﻿using Android.Webkit;
+using CakeGrandOrder.Models;
 using CakeGrandOrder.ViewModels;
 using Firebase.Auth;
 using Firebase.Auth.Providers;
@@ -68,6 +69,12 @@ namespace CakeGrandOrder.Services
 
         public async Task<bool> TryRegister(string userNameString, string passwordString, string fullName)
         {
+            // Check connectivity before attempting registration
+            if (!await ConnectivityService.GetInstance().CheckConnectivityAndAlert("registration"))
+            {
+                return false;
+            }
+
             try
             {
                 // 1: Create a user in Firebase with an Email and Password.
@@ -122,6 +129,11 @@ namespace CakeGrandOrder.Services
             {
                 return false;
             }
+            if (!await ConnectivityService.GetInstance().CheckConnectivityAndAlert("login"))
+            {
+                return false;
+            }
+
             try
             {
                 var authUser = await auth.SignInWithEmailAndPasswordAsync(userNameString, passwordString);
@@ -162,6 +174,10 @@ namespace CakeGrandOrder.Services
 
         public async Task<List<Cake>?> GetCakesAsync()
         {
+            if (!await ConnectivityService.GetInstance().CheckConnectivityAndAlert("loading cakes"))
+            {
+                return new List<Cake>();
+            }
             try
             {
                 var results = await client
@@ -177,6 +193,10 @@ namespace CakeGrandOrder.Services
         }
         public async Task<List<Order>?> GetOrderCakesAsync()
         {
+            if (!await ConnectivityService.GetInstance().CheckConnectivityAndAlert("loading orders"))
+            {
+                return new List<Order>();
+            }
             try
             {
                 var results = await client
@@ -230,6 +250,10 @@ namespace CakeGrandOrder.Services
         }*/
         public async Task<bool> CreateCakeOrder(Order order)
         {
+            if (!await ConnectivityService.GetInstance().CheckConnectivityAndAlert("adding order"))
+            {
+                return false;
+            }
             try
             {
                 var result = await client
@@ -247,6 +271,10 @@ namespace CakeGrandOrder.Services
         }
         public async Task<bool> AddToCart(Cake cake)
         {
+            if (!await ConnectivityService.GetInstance().CheckConnectivityAndAlert("adding cake to cart"))
+            {
+                return false;
+            }
             try
             {
                 var result = await client
@@ -265,6 +293,10 @@ namespace CakeGrandOrder.Services
         
         public async Task<List<Cake>?> GetCartAsync()
         {
+            if (!await ConnectivityService.GetInstance().CheckConnectivityAndAlert("loading cart"))
+            {
+                return new List<Cake>();
+            }
             try
             {
                 var results = await client
@@ -284,6 +316,8 @@ namespace CakeGrandOrder.Services
         }
         public async Task CleanCartAsync()
         {
+            if (!await ConnectivityService.GetInstance().CheckConnectivityAndAlert("cleaning cart"))
+            {}
             try
             {
                 await client
