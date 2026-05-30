@@ -52,6 +52,16 @@ namespace CakeGrandOrder.ViewModels;
         }
         private async Task CakeOrderCart()
         {
+        bool answer = await Application.Current.MainPage.DisplayAlert(
+    "Confirm",
+    "Do you want to order this cart?",
+    "Yes",
+    "No");
+
+        if (!answer)
+        {
+            return;
+        }
         List<Cake> cakes = await AppService.GetInstance().GetCartAsync();
 
         var order = new Order()

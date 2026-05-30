@@ -159,6 +159,7 @@ namespace CakeGrandOrder.Services
 
         public bool Logout()
         {
+
             try
             {
                 auth.SignOut();
