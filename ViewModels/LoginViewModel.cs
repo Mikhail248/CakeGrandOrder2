@@ -13,6 +13,7 @@ namespace CakeGrandOrder.ViewModels
     {
         #region Get Set
         private string userName;
+        private string oldUser;
         public string UserName
         {
             get { return userName; }
@@ -64,8 +65,7 @@ namespace CakeGrandOrder.ViewModels
 
         #region Constructor
         public LoginViewModel() {
-            UserName = "micha@gmail.com";
-            UserPassword = "123456";
+            UserName = oldUser;
             TogglePasswordCommand = new Command(ToggleViewPassword);
             LinkToRegisterPageCommand = new Command(async () => await LinkToRegisterPage());
             ResetCommand = new Command(ResetField);
@@ -87,7 +87,7 @@ namespace CakeGrandOrder.ViewModels
             bool succseed = await AppService.GetInstance().TryLogin(UserName, UserPassword);
             if (succseed)
             {
-                
+                oldUser = UserName;
                 ((App)Application.Current).SetAuthenticatedShell();
                 
             }
