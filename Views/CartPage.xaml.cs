@@ -3,9 +3,16 @@ namespace CakeGrandOrder.Views;
 
 public partial class CartPage : ContentPage
 {
-	public CartPage()
+    CartViewModel vm;
+    public CartPage()
 	{
         InitializeComponent();
-        BindingContext = new CartViewModel();
+        vm = new CartViewModel();
+        BindingContext = vm;
+    }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        vm.OnAppearing();
     }
 }

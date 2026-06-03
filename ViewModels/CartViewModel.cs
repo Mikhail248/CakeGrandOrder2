@@ -81,6 +81,11 @@ namespace CakeGrandOrder.ViewModels;
 
         await AppService.GetInstance().CleanCartAsync();
         }
-        #endregion
+    
+    public async Task OnAppearing()
+    {
+        CartList = new ObservableCollection<Cake>(await AppService.GetInstance().GetCartAsync());
     }
+    #endregion
+}
 
