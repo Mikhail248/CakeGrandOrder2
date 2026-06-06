@@ -143,7 +143,7 @@
 
                             </Grid>
 
-                            <Button Text="Order"
+                            <Button Text="Add to Cart"
                                     Command="{Binding OrderDefaultCakeCommand, Source={x:RelativeSource AncestorType={x:Type viewmodels:DefaultCakesViewModel}, Mode=FindAncestorBindingContext}}"
                                     CommandParameter="{Binding .}" />
 

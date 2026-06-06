@@ -36,9 +36,6 @@
 
                 <VerticalStackLayout Spacing="10">
 
-                    <Entry Placeholder="Id"
-                           Text="{Binding Id}" />
-
                     <Entry Placeholder="Cake name"
                            Text="{Binding CakeName}" />
 
@@ -75,7 +72,7 @@
             </Border>
 
             <Button
-                Text="Order"
+                Text="Add to Cart"
                 HeightRequest="50"
                 FontAttributes="Bold"
                 Command="{Binding OrderCommand}" />

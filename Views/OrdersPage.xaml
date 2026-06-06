@@ -162,10 +162,10 @@
                                                     <Label Text="{Binding Construction, StringFormat='Construction: {0}'}" />
                                                     <Label Text="{Binding Top, StringFormat='Top: {0}'}" />
                                                     <Button
-       Margin="0,8,0,0"
+       Margin="0,10,0,0"
     Command="{Binding OrderDefaultCakeCommand, Source={x:RelativeSource AncestorType={x:Type viewmodels:OrdersViewModel}, Mode=FindAncestorBindingContext}}"
     CommandParameter="{Binding .}"
-    Text="Reorder" />
+    Text="Add to Cart" />
                                                   
 
                                                 </VerticalStackLayout>
